@@ -1,0 +1,598 @@
+{
+	"info": {
+		"_postman_id": "profil-desa-sanctum-api",
+		"name": "Website Profil Desa Sanctum API",
+		"description": "Koleksi Postman API berbasis Bearer Token (Laravel Sanctum). Tidak memerlukan CSRF/Cookie session.",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Auth API",
+			"item": [
+				{
+					"name": "1. Login Admin (Dapatkan Bearer Token)",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"var jsonData = pm.response.json();",
+									"if (jsonData.token) {",
+									"    pm.collectionVariables.set('bearer_token', jsonData.token);",
+									"    console.log('Bearer token saved:', jsonData.token);",
+									"}"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"email\": \"admin@desa.id\",\n  \"password\": \"password123\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/api/login",
+							"host": ["{{base_url}}"],
+							"path": ["api", "login"]
+						}
+					}
+				},
+				{
+					"name": "2. Get Current User Info (/api/admin/me)",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{bearer_token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							}
+						],
+						"url": {
+							"raw": "{{base_url}}/api/admin/me",
+							"host": ["{{base_url}}"],
+							"path": ["api", "admin", "me"]
+						}
+					}
+				},
+				{
+					"name": "3. Logout Admin",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{bearer_token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							}
+						],
+						"url": {
+							"raw": "{{base_url}}/api/admin/logout",
+							"host": ["{{base_url}}"],
+							"path": ["api", "admin", "logout"]
+						}
+					}
+				}
+			]
+		},
+		{
+			"name": "Admin Protected API (Bearer Token)",
+			"item": [
+				{
+					"name": "Get Dashboard Stats",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{bearer_token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							}
+						],
+						"url": {
+							"raw": "{{base_url}}/api/admin/dashboard",
+							"host": ["{{base_url}}"],
+							"path": ["api", "admin", "dashboard"]
+						}
+					}
+				},
+				{
+					"name": "Get Karang Taruna List",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{bearer_token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							}
+						],
+						"url": {
+							"raw": "{{base_url}}/api/admin/karang-taruna",
+							"host": ["{{base_url}}"],
+							"path": ["api", "admin", "karang-taruna"]
+						}
+					}
+				},
+				{
+					"name": "Create Karang Taruna",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{bearer_token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "nama",
+									"value": "Ahmad Subagyo",
+									"type": "text"
+								},
+								{
+									"key": "jabatan",
+									"value": "Ketua Karang Taruna",
+									"type": "text"
+								},
+								{
+									"key": "deskripsi",
+									"value": "Koordinator utama pemuda desa",
+									"type": "text"
+								},
+								{
+									"key": "foto",
+									"type": "file",
+									"src": []
+								}
+							]
+						},
+						"url": {
+							"raw": "{{base_url}}/api/admin/karang-taruna",
+							"host": ["{{base_url}}"],
+							"path": ["api", "admin", "karang-taruna"]
+						}
+					}
+				},
+				{
+					"name": "Update Karang Taruna",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{bearer_token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "nama",
+									"value": "Ahmad Subagyo, S.T.",
+									"type": "text"
+								},
+								{
+									"key": "jabatan",
+									"value": "Ketua Karang Taruna",
+									"type": "text"
+								},
+								{
+									"key": "deskripsi",
+									"value": "Koordinator utama pemuda desa",
+									"type": "text"
+								},
+								{
+									"key": "foto",
+									"type": "file",
+									"src": []
+								}
+							]
+						},
+						"url": {
+							"raw": "{{base_url}}/api/admin/karang-taruna/1",
+							"host": ["{{base_url}}"],
+							"path": ["api", "admin", "karang-taruna", "1"]
+						}
+					}
+				},
+				{
+					"name": "Delete Karang Taruna",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{bearer_token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							}
+						],
+						"url": {
+							"raw": "{{base_url}}/api/admin/karang-taruna/1",
+							"host": ["{{base_url}}"],
+							"path": ["api", "admin", "karang-taruna", "1"]
+						}
+					}
+				},
+				{
+					"name": "Get Galeri List",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{bearer_token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							}
+						],
+						"url": {
+							"raw": "{{base_url}}/api/admin/galeri",
+							"host": ["{{base_url}}"],
+							"path": ["api", "admin", "galeri"]
+						}
+					}
+				},
+				{
+					"name": "Create Galeri",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{bearer_token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "judul",
+									"value": "Panen Raya Padi Desa",
+									"type": "text"
+								},
+								{
+									"key": "kategori",
+									"value": "Kegiatan",
+									"type": "text"
+								},
+								{
+									"key": "tanggal",
+									"value": "2026-08-24",
+									"type": "text"
+								},
+								{
+									"key": "gambar",
+									"type": "file",
+									"src": []
+								}
+							]
+						},
+						"url": {
+							"raw": "{{base_url}}/api/admin/galeri",
+							"host": ["{{base_url}}"],
+							"path": ["api", "admin", "galeri"]
+						}
+					}
+				},
+				{
+					"name": "Update Galeri",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{bearer_token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "judul",
+									"value": "Panen Raya Padi Organik Desa",
+									"type": "text"
+								},
+								{
+									"key": "kategori",
+									"value": "Pertanian",
+									"type": "text"
+								},
+								{
+									"key": "tanggal",
+									"value": "2026-08-24",
+									"type": "text"
+								},
+								{
+									"key": "gambar",
+									"type": "file",
+									"src": []
+								}
+							]
+						},
+						"url": {
+							"raw": "{{base_url}}/api/admin/galeri/1",
+							"host": ["{{base_url}}"],
+							"path": ["api", "admin", "galeri", "1"]
+						}
+					}
+				},
+				{
+					"name": "Delete Galeri",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{bearer_token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							}
+						],
+						"url": {
+							"raw": "{{base_url}}/api/admin/galeri/1",
+							"host": ["{{base_url}}"],
+							"path": ["api", "admin", "galeri", "1"]
+						}
+					}
+				}
+			]
+		},
+		{
+			"name": "Public API",
+			"item": [
+				{
+					"name": "Get Home Data",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							}
+						],
+						"url": {
+							"raw": "{{base_url}}/api/home",
+							"host": ["{{base_url}}"],
+							"path": ["api", "home"]
+						}
+					}
+				},
+				{
+					"name": "Get Profil Data",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							}
+						],
+						"url": {
+							"raw": "{{base_url}}/api/profil",
+							"host": ["{{base_url}}"],
+							"path": ["api", "profil"]
+						}
+					}
+				},
+				{
+					"name": "Get Potensi Data",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							}
+						],
+						"url": {
+							"raw": "{{base_url}}/api/potensi",
+							"host": ["{{base_url}}"],
+							"path": ["api", "potensi"]
+						}
+					}
+				},
+				{
+					"name": "Get Agenda Data",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							}
+						],
+						"url": {
+							"raw": "{{base_url}}/api/agenda",
+							"host": ["{{base_url}}"],
+							"path": ["api", "agenda"]
+						}
+					}
+				},
+				{
+					"name": "Get Kontak Data",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							}
+						],
+						"url": {
+							"raw": "{{base_url}}/api/kontak",
+							"host": ["{{base_url}}"],
+							"path": ["api", "kontak"]
+						}
+					}
+				},
+				{
+					"name": "Get Karang Taruna Data",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							}
+						],
+						"url": {
+							"raw": "{{base_url}}/api/karang-taruna",
+							"host": ["{{base_url}}"],
+							"path": ["api", "karang-taruna"]
+						}
+					}
+				},
+				{
+					"name": "Get Galeri Data",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							}
+						],
+						"url": {
+							"raw": "{{base_url}}/api/galeri",
+							"host": ["{{base_url}}"],
+							"path": ["api", "galeri"]
+						}
+					}
+				}
+			]
+		}
+	],
+	"variable": [
+		{
+			"key": "base_url",
+			"value": "http://localhost:8000",
+			"type": "string"
+		},
+		{
+			"key": "bearer_token",
+			"value": "",
+			"type": "string"
+		}
+	]
+}

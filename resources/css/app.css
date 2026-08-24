@@ -1,0 +1,54 @@
+@import 'tailwindcss';
+
+@source '../../vendor/laravel/framework/src/Illuminate/Pagination/resources/views/*.blade.php';
+@source '../../storage/framework/views/*.php';
+
+:root {
+  --font-display: 'Lora', serif;
+  --font-body: 'Inter', sans-serif;
+
+  --color-primary: #1F5C6B;
+  --color-accent: #5FA8B5;
+  --color-bg: #EEF3F3;
+  --color-stone: #3A4A4C;
+  --color-text: #5E6E6E;
+}
+
+@layer utilities {
+  .font-display {
+    font-family: var(--font-display);
+  }
+  .font-body {
+    font-family: var(--font-body);
+  }
+  .bg-kabut {
+    background-color: var(--color-bg);
+  }
+  .bg-biru-mata-air {
+    background-color: var(--color-primary);
+  }
+  .bg-biru-langit {
+    background-color: var(--color-accent);
+  }
+  .bg-batu-basah {
+    background-color: var(--color-stone);
+  }
+  .text-biru-mata-air {
+    color: var(--color-primary);
+  }
+  .text-biru-langit {
+    color: var(--color-accent);
+  }
+  .text-batu-basah {
+    color: var(--color-stone);
+  }
+  .text-sejuk {
+    color: var(--color-text);
+  }
+  .border-batu-basah {
+    border-color: var(--color-stone);
+  }
+  .border-biru-langit {
+    border-color: var(--color-accent);
+  }
+}

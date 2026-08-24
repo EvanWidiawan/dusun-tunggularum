@@ -1,0 +1,62 @@
+[
+  {
+    "id": 1,
+    "nama": "Salak Pondoh Organik Tunggularum",
+    "kategori": "Pertanian & Buah",
+    "pemilik": "Pak Sugeng (Kelompok Tani Manunggal)",
+    "kontak": "+62 812-3456-7891",
+    "waLink": "https://wa.me/6281234567891?text=Halo%20Pak%20Sugeng,%20saya%20tertarik%20dengan%20produk%20Salak%20Pondoh%20Tunggularum",
+    "lokasi": "RT 01 / Dusun Tunggularum",
+    "deskripsi": "Salak Pondoh super hasil panen perkebunan warga Dusun Tunggularum di kaki Gunung Merapi. Manis, renyah, dan ditanam secara organik tanpa pestisida kimia.",
+    "gambar": "/images/umkm/salak-pondoh.jpg",
+    "driveLink": "https://drive.google.com/drive/folders/1SampleSalakFolderDriveTunggularum"
+  },
+  {
+    "id": 2,
+    "nama": "Kopi Merapi Arabika Tunggularum",
+    "kategori": "Minuman & Olahan Kopi",
+    "pemilik": "Ibu Rahma",
+    "kontak": "+62 812-3456-7892",
+    "waLink": "https://wa.me/6281234567892?text=Halo%20Ibu%20Rahma,%20saya%20tertarik%20pesan%20Kopi%20Merapi%20Arabika",
+    "lokasi": "RT 02 / Dusun Tunggularum",
+    "deskripsi": "Kopi racikan arabika lereng Gunung Merapi dipetik langsung dari kebun ketinggian 700 mdpl. Diproses dengan pemanggangan medium-dark untuk menciptakan rasa khas pegunungan.",
+    "gambar": "/images/umkm/kopi-merapi.jpg",
+    "driveLink": "https://drive.google.com/drive/folders/1SampleKopiFolderDriveTunggularum"
+  },
+  {
+    "id": 3,
+    "nama": "Kerajinan Anyaman Bambu Tradisional",
+    "kategori": "Kerajinan Tangan & Souvenir",
+    "pemilik": "Pak Maryono",
+    "kontak": "+62 812-3456-7893",
+    "waLink": "https://wa.me/6281234567893?text=Halo%20Pak%20Maryono,%20saya%20ingin%20tanya%20kerajinan%20anyaman%20bambu",
+    "lokasi": "RT 03 / Dusun Tunggularum",
+    "deskripsi": "Kerajinan tangan dari bambu lokal kualitas pilihan. Menerima pesanan besek hantaran, tampah, tudung saji, wadah souvenir, dan dekorasi rumah bernuansa etnik.",
+    "gambar": "/images/umkm/kerajinan-bambu.jpg",
+    "driveLink": "https://drive.google.com/drive/folders/1SampleBambuFolderDriveTunggularum"
+  },
+  {
+    "id": 4,
+    "nama": "Keripik & Dodol Salak Olahan KWT",
+    "kategori": "Olahan Pangan & Oleh-Oleh",
+    "pemilik": "Ibu Hastuti (Kelompok Wanita Tani)",
+    "kontak": "+62 812-3456-7894",
+    "waLink": "https://wa.me/6281234567894?text=Halo%20Ibu%20Hastuti,%20saya%20ingin%20pesan%20oleh-oleh%20Keripik%20Salak",
+    "lokasi": "RT 02 / Dusun Tunggularum",
+    "deskripsi": "Produk olahan buah salak buatan Kelompok Wanita Tani (KWT) Tunggularum. Diolah menggunakan teknologi penggorengan vakum (vacuum frying) tanpa bahan pengawet sintetis.",
+    "gambar": "/images/umkm/salak-pondoh.jpg",
+    "driveLink": "https://drive.google.com/drive/folders/1SampleKeripikFolderDriveTunggularum"
+  },
+  {
+    "id": 5,
+    "nama": "Agrowisata & Tour Kebun Salak",
+    "kategori": "Jasa & Eduwisata Alam",
+    "pemilik": "Pokdarwis Tunggularum (Pak Joko)",
+    "kontak": "+62 812-3456-7895",
+    "waLink": "https://wa.me/6281234567895?text=Halo%20Pokdarwis,%20saya%20ingin%20reservasi%20paket%20Tour%20Kebun%20Salak",
+    "lokasi": "RT 04 / Dusun Tunggularum",
+    "deskripsi": "Paket wisata edukasi petik buah salak langsung di kebun, jalan santai menyusuri mata air lereng Merapi, dan mencicipi hidangan kuliner tradisional dusun.",
+    "gambar": "/images/umkm/kopi-merapi.jpg",
+    "driveLink": "https://drive.google.com/drive/folders/1SampleWisataFolderDriveTunggularum"
+  }
+]
