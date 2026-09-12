@@ -41,7 +41,8 @@ class GaleriController extends Controller
             $destinationPath = public_path('uploads/galeri');
             
             if (!file_exists($destinationPath)) {
-                mkdir($destinationPath, 0755, true);
+                @mkdir($destinationPath, 0777, true);
+                @chmod($destinationPath, 0777);
             }
             
             $file->move($destinationPath, $fileName);
@@ -84,7 +85,8 @@ class GaleriController extends Controller
             $destinationPath = public_path('uploads/galeri');
             
             if (!file_exists($destinationPath)) {
-                mkdir($destinationPath, 0755, true);
+                @mkdir($destinationPath, 0777, true);
+                @chmod($destinationPath, 0777);
             }
             
             $file->move($destinationPath, $fileName);

@@ -39,16 +39,32 @@ export function getImageUrl(path) {
  */
 export function handleImageFallback(event, fallback = '/images/hero-tunggularum.png') {
   const target = event.target;
-  const currentSrc = target.getAttribute('src') || '';
+  const currentSrc = target.src || target.getAttribute('src') || '';
   
-  // Jika pertama kali coba /uploads/, coba fallback ke /storage/
-  if (currentSrc.startsWith('/uploads/')) {
-    target.setAttribute('src', currentSrc.replace('/uploads/', '/storage/'));
+  // Cegah infinite loop jika fallback pun error
+  if (target.dataset.triedFallback === '2') {
     return;
   }
-  
-  // Jika tetap gagal, gunakan placeholder default
-  if (!currentSrc.includes('hero-tunggularum')) {
-    target.setAttribute('src', fallback);
+
+  if (target.dataset.triedFallback === '1') {
+    target.dataset.triedFallback = '2';
+    target.src = fallback;
+    return;
   }
+
+  target.dataset.triedFallback = '1';
+
+  // Jika URL saat ini menggunakan /uploads/, coba fallback ke /storage/
+  if (currentSrc.includes('/uploads/')) {
+    target.src = currentSrc.replace('/uploads/', '/storage/');
+    return;
+  }
+
+  // Jika URL saat ini menggunakan /storage/, coba fallback ke /uploads/
+  if (currentSrc.includes('/storage/')) {
+    target.src = currentSrc.replace('/storage/', '/uploads/');
+    return;
+  }
+
+  target.src = fallback;
 }

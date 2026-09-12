@@ -35,7 +35,8 @@ class ApiKarangTarunaController extends Controller
             $destinationPath = public_path('uploads/karang-taruna');
             
             if (!file_exists($destinationPath)) {
-                mkdir($destinationPath, 0755, true);
+                @mkdir($destinationPath, 0777, true);
+                @chmod($destinationPath, 0777);
             }
             
             $file->move($destinationPath, $fileName);
@@ -86,7 +87,8 @@ class ApiKarangTarunaController extends Controller
             $destinationPath = public_path('uploads/karang-taruna');
             
             if (!file_exists($destinationPath)) {
-                mkdir($destinationPath, 0755, true);
+                @mkdir($destinationPath, 0777, true);
+                @chmod($destinationPath, 0777);
             }
             
             $file->move($destinationPath, $fileName);
