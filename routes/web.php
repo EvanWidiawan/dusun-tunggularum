@@ -25,6 +25,19 @@ Route::middleware([TrackPageVisit::class])->group(function () {
 
 /*
 |--------------------------------------------------------------------------
+| Storage Asset Route (Menjamin foto selalu muncul di semua server & cPanel)
+|--------------------------------------------------------------------------
+*/
+Route::get('/storage/{path}', function ($path) {
+    $filePath = storage_path('app/public/' . $path);
+    if (!file_exists($filePath)) {
+        abort(404);
+    }
+    return response()->file($filePath);
+})->where('path', '.*');
+
+/*
+|--------------------------------------------------------------------------
 | Auth Routes
 |--------------------------------------------------------------------------
 */
