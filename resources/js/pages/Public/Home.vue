@@ -4,7 +4,7 @@
     <section
       id="beranda"
       class="relative min-h-[90vh] flex items-center justify-center bg-cover bg-center bg-no-repeat overflow-hidden"
-      style="background-image: url('/images/hero-tunggularum.png');"
+      style="background-image: url('/images/hero-tunggularum3.jpeg');"
     >
       <!-- Dark Gradient Overlay for Maximum Text Contrast -->
       <div class="absolute inset-0 bg-gradient-to-b from-black/75 via-[#1F5C6B]/70 to-[#1F5C6B] z-0"></div>
@@ -37,11 +37,11 @@
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="grid grid-cols-1 md:grid-cols-3 gap-8 text-center divide-y md:divide-y-0 md:divide-x divide-[#EEF3F3]/15">
           <div class="pt-4 md:pt-0">
-            <p class="font-display font-bold text-4xl text-[#5FA8B5]">1.450+</p>
+            <p class="font-display font-bold text-4xl text-[#5FA8B5]">600+</p>
             <p class="text-sm text-[#EEF3F3]/80 mt-1 font-medium">Jumlah Warga Dusun</p>
           </div>
           <div class="pt-4 md:pt-0">
-            <p class="font-display font-bold text-4xl text-[#5FA8B5]">350 Ha</p>
+            <p class="font-display font-bold text-4xl text-[#5FA8B5]">164 Ha</p>
             <p class="text-sm text-[#EEF3F3]/80 mt-1 font-medium">Luas Wilayah Dusun</p>
           </div>
           <div class="pt-4 md:pt-0">
@@ -228,80 +228,199 @@
       </div>
     </section>
 
-    <!-- SECTION 4: AGENDA & KEGIATAN -->
-    <section id="agenda" class="py-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 border-b border-[#3A4A4C]/15">
-      <div class="max-w-3xl mx-auto text-center space-y-4 mb-12">
-        <h2 class="font-display font-bold text-4xl text-[#1F5C6B]">Agenda & Kegiatan Dusun</h2>
-        <p class="text-[#5E6E6E] text-lg">Informasi agenda kegiatan kemasyarakatan dan gotong royong warga.</p>
+    <!-- SECTION 4: KEGIATAN & TRADISI BESAR DUSUN -->
+    <section id="kegiatan" class="py-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 border-b border-[#3A4A4C]/15">
+      <div class="max-w-3xl mx-auto text-center space-y-4 mb-14">
+        <h2 class="font-display font-bold text-3xl sm:text-4xl text-[#1F5C6B]">
+          Kegiatan & Tradisi Dusun
+        </h2>
+        <p class="text-[#5E6E6E] text-base sm:text-lg">
+          Rangkaian agenda dan tradisi besar masyarakat Dusun Tunggularum yang terus dilestarikan secara turun-temurun.
+        </p>
       </div>
 
-      <div class="max-w-4xl mx-auto space-y-6">
-        <div class="bg-white/80 rounded-2xl p-6 border border-[#3A4A4C]/15 shadow-xs flex flex-col md:flex-row items-start md:items-center justify-between gap-4">
+      <!-- Activities Grid -->
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div
+          v-for="kegiatan in activeKegiatanList"
+          :key="kegiatan.id"
+          @click="openKegiatanModal(kegiatan)"
+          class="bg-white rounded-3xl overflow-hidden border border-[#3A4A4C]/15 shadow-xs hover:shadow-xl hover:-translate-y-1 transition-all duration-300 cursor-pointer flex flex-col justify-between group"
+        >
           <div>
-            <span class="text-xs font-semibold text-[#5FA8B5] uppercase tracking-wider">01 September 2026</span>
-            <h3 class="font-display font-bold text-xl text-[#1F5C6B] mt-1">Kerja Bakti Masal & Pembersihan Irigasi Kebun</h3>
-            <p class="text-sm text-[#5E6E6E] mt-1">Lokasi: Seluruh Wilayah RT Dusun Tunggularum</p>
-          </div>
-          <span class="px-4 py-2 rounded-xl bg-[#1F5C6B] text-white text-xs font-medium shrink-0">Mendatang</span>
-        </div>
+            <!-- Cover Photo Preview with Fallback Image -->
+            <div class="h-56 bg-gradient-to-tr from-[#1F5C6B] to-[#5FA8B5] overflow-hidden relative">
+              <img
+                :src="kegiatan.cover"
+                :alt="kegiatan.judul"
+                class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                @error="(e) => { e.target.style.display = 'none'; if(e.target.nextElementSibling) e.target.nextElementSibling.style.display = 'flex'; }"
+              />
+              <!-- Fallback container if image not yet uploaded -->
+              <div class="hidden absolute inset-0 bg-gradient-to-tr from-[#1F5C6B] to-[#5FA8B5] flex-col items-center justify-center text-white p-4 text-center">
+                <svg class="w-12 h-12 text-white/70 mb-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" />
+                </svg>
+                <span class="text-xs font-semibold text-white/90">Foto Dokumentasi</span>
+              </div>
 
-        <div class="bg-white/80 rounded-2xl p-6 border border-[#3A4A4C]/15 shadow-xs flex flex-col md:flex-row items-start md:items-center justify-between gap-4">
-          <div>
-            <span class="text-xs font-semibold text-[#5FA8B5] uppercase tracking-wider">10 September 2026</span>
-            <h3 class="font-display font-bold text-xl text-[#1F5C6B] mt-1">Pelatihan Digital Marketing & Pengemasan UMKM</h3>
-            <p class="text-sm text-[#5E6E6E] mt-1">Lokasi: Posko KKN / Rumah Warga RT 02</p>
+              <!-- Photo Count Badge -->
+              <div class="absolute bottom-3 right-3 px-3 py-1.5 rounded-xl bg-black/60 backdrop-blur-md text-white text-xs font-bold flex items-center gap-1.5 shadow-md">
+                <svg class="w-4 h-4 text-[#5FA8B5]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" />
+                </svg>
+                <span>{{ kegiatan.foto_dokumentasi ? kegiatan.foto_dokumentasi.length : 1 }} Foto</span>
+              </div>
+            </div>
+
+            <!-- Content -->
+            <div class="p-6 space-y-3">
+              <div class="flex items-center gap-2 text-xs font-semibold text-[#5FA8B5]">
+                <svg class="w-4 h-4 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
+                </svg>
+                <span class="truncate">{{ kegiatan.lokasi }}</span>
+              </div>
+
+              <h3 class="font-display font-bold text-xl text-[#1F5C6B] group-hover:text-[#5FA8B5] transition-colors leading-snug">
+                {{ kegiatan.judul }}
+              </h3>
+
+              <p class="text-sm text-[#5E6E6E] line-clamp-3 leading-relaxed">
+                {{ kegiatan.deskripsi_singkat }}
+              </p>
+            </div>
           </div>
-          <span class="px-4 py-2 rounded-xl bg-[#1F5C6B] text-white text-xs font-medium shrink-0">Mendatang</span>
+
+          <!-- Card Footer Link -->
+          <div class="px-6 pb-6 pt-2">
+            <div class="w-full py-3 px-4 rounded-2xl bg-[#EEF3F3] group-hover:bg-[#1F5C6B] group-hover:text-white text-[#1F5C6B] text-xs font-bold flex items-center justify-between transition-all duration-300">
+              <span>Lihat Dokumentasi & Foto</span>
+              <span class="group-hover:translate-x-1 transition-transform">&rarr;</span>
+            </div>
+          </div>
         </div>
       </div>
     </section>
 
     <!-- SECTION 5: GALERI FOTO DUSUN -->
     <section id="galeri" class="py-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 border-b border-[#3A4A4C]/15">
-      <div class="max-w-3xl mx-auto text-center space-y-4 mb-12">
-        <h2 class="font-display font-bold text-4xl text-[#1F5C6B]">Galeri Foto Dusun</h2>
-        <p class="text-[#5E6E6E] text-lg">Koleksi foto kegiatan warga, infrastruktur, dan suasana asri Tunggularum.</p>
+      <div class="max-w-3xl mx-auto text-center space-y-4 mb-14">
+        <h2 class="font-display font-bold text-3xl sm:text-4xl text-[#1F5C6B]">
+          Galeri Foto Dusun
+        </h2>
+        <p class="text-[#5E6E6E] text-base sm:text-lg">
+          Dokumentasi visual keindahan alam, suasana pedesaan, dan potret kehidupan warga Dusun Tunggularum.
+        </p>
       </div>
 
-      <div v-if="galeri && galeri.length > 0" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+      <!-- Galeri Carousel Container (8 Foto per Slide dengan Slider Geser) -->
+      <div v-if="galeri && galeri.length > 0" class="space-y-8">
+        <!-- Carousel Track with Overflow Hidden -->
         <div
-          v-for="item in galeri"
-          :key="item.id"
-          class="bg-white/80 rounded-2xl overflow-hidden border border-[#3A4A4C]/15 shadow-xs group hover:shadow-md transition-all"
+          class="overflow-hidden relative rounded-3xl"
+          @touchstart="handleGaleriGridTouchStart"
+          @touchend="handleGaleriGridTouchEnd"
         >
-          <div class="h-48 bg-[#1F5C6B]/10 overflow-hidden relative">
-            <img
-              v-if="item.gambar"
-              :src="'/storage/' + item.gambar"
-              :alt="item.judul"
-              class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
-            />
-            <div v-else class="w-full h-full flex items-center justify-center text-[#1F5C6B]/40">
-              <svg class="w-12 h-12" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" />
-              </svg>
-            </div>
-            <span
-              v-if="item.kategori"
-              class="absolute top-3 left-3 px-3 py-1 rounded-full bg-[#1F5C6B]/85 backdrop-blur-xs text-white text-xs font-semibold"
+          <div
+            class="flex transition-transform duration-500 ease-out"
+            :style="{ transform: `translateX(-${galeriSlideIndex * 100}%)` }"
+          >
+            <!-- Page Slide Chunk of 8 Photos -->
+            <div
+              v-for="(chunk, pageIdx) in galeriPages"
+              :key="pageIdx"
+              class="w-full shrink-0 grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 sm:gap-6 px-1"
             >
-              {{ item.kategori }}
-            </span>
+              <div
+                v-for="(item, itemIdx) in chunk"
+                :key="item.id"
+                @click="openGaleriModal(pageIdx * 8 + itemIdx)"
+                class="group relative h-52 sm:h-64 rounded-2xl overflow-hidden shadow-xs hover:shadow-xl border border-[#3A4A4C]/15 cursor-pointer bg-[#1F5C6B]/10 transition-all duration-300"
+              >
+                <!-- Image -->
+                <img
+                  v-if="item.gambar"
+                  :src="'/storage/' + item.gambar"
+                  :alt="item.judul"
+                  class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                />
+                <div v-else class="w-full h-full flex items-center justify-center text-[#1F5C6B]/40">
+                  <svg class="w-12 h-12" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" />
+                  </svg>
+                </div>
+
+                <!-- Hover Overlay with Zoom Icon -->
+                <div class="absolute inset-0 bg-[#1F5C6B]/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center backdrop-blur-xs">
+                  <div class="w-11 h-11 rounded-full bg-white/90 text-[#1F5C6B] flex items-center justify-center shadow-lg transform scale-75 group-hover:scale-100 transition-transform duration-300">
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0zM10 7v6m3-3H7" />
+                    </svg>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
-          <div class="p-5">
-            <h3 class="font-display font-bold text-lg text-[#1F5C6B] leading-snug">{{ item.judul }}</h3>
-            <p class="text-xs text-[#5E6E6E] mt-2 flex items-center gap-1">
-              <svg class="w-4 h-4 text-[#5FA8B5]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
+        </div>
+
+        <!-- Carousel Navigation Controls (Muncul jika foto lebih dari 8) -->
+        <div
+          v-if="totalGaleriPages > 1"
+          class="flex flex-col sm:flex-row items-center justify-between gap-4 pt-4 border-t border-[#3A4A4C]/10"
+        >
+          <!-- Info Halaman / Counter -->
+          <div class="text-xs sm:text-sm font-semibold text-[#5E6E6E]">
+            Menampilkan halaman <span class="font-bold text-[#1F5C6B]">{{ galeriSlideIndex + 1 }}</span> dari <span class="font-bold text-[#1F5C6B]">{{ totalGaleriPages }}</span> ({{ galeri.length }} Foto)
+          </div>
+
+          <!-- Pagination Dots & Buttons -->
+          <div class="flex items-center gap-4">
+            <!-- Prev Slide Button -->
+            <button
+              @click="prevGaleriSlide"
+              :disabled="galeriSlideIndex === 0"
+              class="w-10 h-10 rounded-full border border-[#3A4A4C]/20 text-[#1F5C6B] hover:bg-[#1F5C6B] hover:text-white disabled:opacity-30 disabled:pointer-events-none transition-all flex items-center justify-center cursor-pointer shadow-xs"
+              aria-label="Previous Gallery Slide"
+            >
+              <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M15 19l-7-7 7-7" />
               </svg>
-              {{ formatDate(item.tanggal) }}
-            </p>
+            </button>
+
+            <!-- Dots Indicator -->
+            <div class="flex items-center gap-2">
+              <button
+                v-for="pageIdx in totalGaleriPages"
+                :key="pageIdx"
+                @click="goToGaleriSlide(pageIdx - 1)"
+                class="h-2.5 rounded-full transition-all duration-300 cursor-pointer"
+                :class="[
+                  galeriSlideIndex === pageIdx - 1
+                    ? 'w-8 bg-[#1F5C6B]'
+                    : 'w-2.5 bg-[#3A4A4C]/20 hover:bg-[#5FA8B5]'
+                ]"
+                :aria-label="`Go to gallery page ${pageIdx}`"
+              ></button>
+            </div>
+
+            <!-- Next Slide Button -->
+            <button
+              @click="nextGaleriSlide"
+              :disabled="galeriSlideIndex >= totalGaleriPages - 1"
+              class="w-10 h-10 rounded-full border border-[#3A4A4C]/20 text-[#1F5C6B] hover:bg-[#1F5C6B] hover:text-white disabled:opacity-30 disabled:pointer-events-none transition-all flex items-center justify-center cursor-pointer shadow-xs"
+              aria-label="Next Gallery Slide"
+            >
+              <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M9 5l7 7-7 7" />
+              </svg>
+            </button>
           </div>
         </div>
       </div>
 
-      <div v-else class="text-center py-12 bg-white/60 rounded-2xl border border-[#3A4A4C]/15 max-w-md mx-auto">
-        <p class="text-[#5E6E6E]">Belum ada foto galeri yang diunggah.</p>
+      <div v-else class="text-center py-16 bg-white/60 rounded-3xl border border-[#3A4A4C]/15 max-w-md mx-auto">
+        <p class="text-[#5E6E6E] text-sm">Belum ada foto galeri yang diunggah.</p>
       </div>
     </section>
 
@@ -370,17 +489,9 @@
           </div>
         </div>
 
-        <div class="bg-white/80 rounded-2xl p-4 border border-[#3A4A4C]/15 shadow-xs overflow-hidden h-80 lg:h-auto">
-          <!-- Embed Google Maps -->
-          <iframe
-            title="Peta Lokasi Dusun Tunggularum Turi Sleman"
-            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d126564.21856715694!2d110.36015525000001!3d-7.540192500000001!2m3!1f0!2f0!3f0!2m3!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e7a5e305e55e5b3%3A0x4027a76e352e850!2sGunung%20Merapi!5e0!3m2!1sid!2sid!4v1650000000000!5m2!1sid!2sid"
-            width="100%"
-            height="100%"
-            style="border:0; border-radius: 12px;"
-            allowfullscreen=""
-            loading="lazy"
-          ></iframe>
+        <div>
+          <!-- Interactive Leaflet Map for Dusun Tunggularum -->
+          <LeafletMap />
         </div>
       </div>
     </section>
@@ -501,85 +612,247 @@
         </div>
       </div>
     </transition>
+
+    <!-- MODAL DIALOG MULTI-FOTO DOKUMENTASI KEGIATAN -->
+    <transition
+      enter-active-class="transition duration-300 ease-out"
+      enter-from-class="opacity-0 scale-95"
+      enter-to-class="opacity-100 scale-100"
+      leave-active-class="transition duration-200 ease-in"
+      leave-from-class="opacity-100 scale-100"
+      leave-to-class="opacity-0 scale-95"
+    >
+      <div
+        v-if="isKegiatanModalOpen && selectedKegiatan"
+        class="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/80 backdrop-blur-xs overflow-y-auto"
+        @click.self="closeKegiatanModal"
+      >
+        <div class="bg-white rounded-3xl overflow-hidden shadow-2xl max-w-3xl w-full my-8 relative flex flex-col max-h-[92vh]">
+          <!-- Close Button -->
+          <button
+            @click="closeKegiatanModal"
+            class="absolute top-4 right-4 z-30 w-10 h-10 rounded-full bg-black/60 hover:bg-black text-white flex items-center justify-center transition-colors focus:outline-hidden cursor-pointer"
+            aria-label="Close Modal"
+          >
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+            </svg>
+          </button>
+
+          <!-- Photo Carousel Viewport -->
+          <div
+            class="relative h-64 sm:h-96 md:h-[400px] bg-black flex items-center justify-center overflow-hidden select-none"
+            @touchstart="handlePhotoTouchStart"
+            @touchend="handlePhotoTouchEnd"
+          >
+            <!-- Main Active Image -->
+            <img
+              v-if="selectedKegiatan.foto_dokumentasi && selectedKegiatan.foto_dokumentasi[currentPhotoIndex]"
+              :src="selectedKegiatan.foto_dokumentasi[currentPhotoIndex].url"
+              :alt="selectedKegiatan.foto_dokumentasi[currentPhotoIndex].caption"
+              class="max-w-full max-h-full object-contain"
+              @error="(e) => { e.target.style.display = 'none'; if(e.target.nextElementSibling) e.target.nextElementSibling.style.display = 'flex'; }"
+            />
+            <!-- Fallback image container -->
+            <div class="hidden absolute inset-0 bg-gradient-to-tr from-[#1F5C6B] to-[#5FA8B5] flex-col items-center justify-center text-white p-4 text-center">
+              <svg class="w-16 h-16 text-white/70 mb-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" />
+              </svg>
+              <span class="text-sm font-semibold text-white/90">{{ selectedKegiatan.judul }}</span>
+            </div>
+
+            <!-- Prev Slide Button -->
+            <button
+              v-if="selectedKegiatan.foto_dokumentasi && selectedKegiatan.foto_dokumentasi.length > 1"
+              @click.stop="prevPhoto"
+              class="absolute left-3 top-1/2 -translate-y-1/2 z-20 w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-black/50 hover:bg-black/80 text-white flex items-center justify-center transition-all focus:outline-hidden cursor-pointer"
+              aria-label="Previous Photo"
+            >
+              <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M15 19l-7-7 7-7" />
+              </svg>
+            </button>
+
+            <!-- Next Slide Button -->
+            <button
+              v-if="selectedKegiatan.foto_dokumentasi && selectedKegiatan.foto_dokumentasi.length > 1"
+              @click.stop="nextPhoto"
+              class="absolute right-3 top-1/2 -translate-y-1/2 z-20 w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-black/50 hover:bg-black/80 text-white flex items-center justify-center transition-all focus:outline-hidden cursor-pointer"
+              aria-label="Next Photo"
+            >
+              <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M9 5l7 7-7 7" />
+              </svg>
+            </button>
+
+            <!-- Photo Slide Counter -->
+            <div class="absolute top-4 left-4 z-20 px-3 py-1.5 rounded-full bg-black/60 backdrop-blur-md text-white text-xs font-bold">
+              {{ currentPhotoIndex + 1 }} / {{ selectedKegiatan.foto_dokumentasi ? selectedKegiatan.foto_dokumentasi.length : 1 }}
+            </div>
+
+            <!-- Caption Overlay at bottom of photo -->
+            <div
+              v-if="selectedKegiatan.foto_dokumentasi && selectedKegiatan.foto_dokumentasi[currentPhotoIndex]"
+              class="absolute bottom-0 left-0 right-0 p-4 bg-gradient-to-t from-black/85 via-black/45 to-transparent text-white text-xs sm:text-sm font-medium text-center"
+            >
+              {{ selectedKegiatan.foto_dokumentasi[currentPhotoIndex].caption }}
+            </div>
+          </div>
+
+          <!-- Modal Body Content -->
+          <div class="p-6 sm:p-8 overflow-y-auto space-y-6 flex-1 bg-white">
+            <!-- Thumbnail Strip if multiple photos -->
+            <div
+              v-if="selectedKegiatan.foto_dokumentasi && selectedKegiatan.foto_dokumentasi.length > 1"
+              class="flex items-center gap-3 overflow-x-auto pb-2"
+            >
+              <div
+                v-for="(foto, idx) in selectedKegiatan.foto_dokumentasi"
+                :key="idx"
+                @click="setPhotoIndex(idx)"
+                class="w-16 h-14 sm:w-20 sm:h-16 rounded-xl overflow-hidden border-2 cursor-pointer shrink-0 transition-all"
+                :class="[
+                  currentPhotoIndex === idx
+                    ? 'border-[#1F5C6B] scale-105 shadow-md'
+                    : 'border-transparent opacity-60 hover:opacity-100'
+                ]"
+              >
+                <img
+                  :src="foto.url"
+                  :alt="foto.caption"
+                  class="w-full h-full object-cover"
+                  @error="(e) => { e.target.src = selectedKegiatan.cover; }"
+                />
+              </div>
+            </div>
+
+            <!-- Title & Location -->
+            <div class="border-b border-[#3A4A4C]/15 pb-4 space-y-2">
+              <div class="flex items-center gap-2 text-xs font-semibold text-[#5FA8B5]">
+                <svg class="w-4 h-4 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
+                </svg>
+                <span>{{ selectedKegiatan.lokasi }}</span>
+              </div>
+              <h3 class="font-display font-bold text-2xl sm:text-3xl text-[#1F5C6B]">
+                {{ selectedKegiatan.judul }}
+              </h3>
+            </div>
+
+            <!-- Full Description Story -->
+            <div class="space-y-2">
+              <h4 class="font-display font-bold text-lg text-[#1F5C6B]">Makna & Rangkaian Tradisi</h4>
+              <p class="text-sm sm:text-base leading-relaxed text-[#5E6E6E]">
+                {{ selectedKegiatan.deskripsi_lengkap }}
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </transition>
+
+    <!-- MODAL LIGHTBOX FOTO GALERI DUSUN -->
+    <transition
+      enter-active-class="transition duration-300 ease-out"
+      enter-from-class="opacity-0 scale-95"
+      enter-to-class="opacity-100 scale-100"
+      leave-active-class="transition duration-200 ease-in"
+      leave-from-class="opacity-100 scale-100"
+      leave-to-class="opacity-0 scale-95"
+    >
+      <div
+        v-if="isGaleriModalOpen && galeri && galeri[selectedGaleriIndex]"
+        class="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/85 backdrop-blur-xs overflow-y-auto"
+        @click.self="closeGaleriModal"
+      >
+        <div class="bg-white rounded-3xl overflow-hidden shadow-2xl max-w-3xl w-full my-8 relative flex flex-col max-h-[92vh]">
+          <!-- Close Button -->
+          <button
+            @click="closeGaleriModal"
+            class="absolute top-4 right-4 z-30 w-10 h-10 rounded-full bg-black/60 hover:bg-black text-white flex items-center justify-center transition-colors focus:outline-hidden cursor-pointer"
+            aria-label="Close Modal"
+          >
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+            </svg>
+          </button>
+
+          <!-- Photo Display Viewport -->
+          <div
+            class="relative h-72 sm:h-96 md:h-[450px] bg-black flex items-center justify-center overflow-hidden select-none"
+            @touchstart="handleGaleriTouchStart"
+            @touchend="handleGaleriTouchEnd"
+          >
+            <img
+              v-if="galeri[selectedGaleriIndex].gambar"
+              :src="'/storage/' + galeri[selectedGaleriIndex].gambar"
+              :alt="galeri[selectedGaleriIndex].judul"
+              class="max-w-full max-h-full object-contain"
+            />
+            <div v-else class="text-white/50 text-sm">
+              Foto tidak tersedia
+            </div>
+
+            <!-- Prev Photo Button -->
+            <button
+              v-if="galeri.length > 1"
+              @click.stop="prevGaleri"
+              class="absolute left-3 top-1/2 -translate-y-1/2 z-20 w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-black/50 hover:bg-black/80 text-white flex items-center justify-center transition-all focus:outline-hidden cursor-pointer"
+              aria-label="Previous Photo"
+            >
+              <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M15 19l-7-7 7-7" />
+              </svg>
+            </button>
+
+            <!-- Next Photo Button -->
+            <button
+              v-if="galeri.length > 1"
+              @click.stop="nextGaleri"
+              class="absolute right-3 top-1/2 -translate-y-1/2 z-20 w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-black/50 hover:bg-black/80 text-white flex items-center justify-center transition-all focus:outline-hidden cursor-pointer"
+              aria-label="Next Photo"
+            >
+              <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M9 5l7 7-7 7" />
+              </svg>
+            </button>
+          </div>
+
+          <!-- Modal Body Content: Judul Foto -->
+          <div class="p-6 sm:p-7 bg-white space-y-2">
+            <div class="flex items-center justify-between gap-4">
+              <h3 class="font-display font-bold text-xl sm:text-2xl text-[#1F5C6B] leading-snug">
+                {{ galeri[selectedGaleriIndex].judul }}
+              </h3>
+              <span class="text-xs font-bold text-[#5FA8B5] bg-[#5FA8B5]/15 px-3 py-1 rounded-full shrink-0">
+                {{ selectedGaleriIndex + 1 }} / {{ galeri.length }}
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </transition>
   </PublicLayout>
 </template>
 
 <script setup>
 import { ref, computed, onMounted, onUnmounted } from 'vue';
 import PublicLayout from '../../Layouts/PublicLayout.vue';
+import LeafletMap from '../../Components/LeafletMap.vue';
 
 const props = defineProps({
   karangTaruna: Array,
   galeri: Array,
   umkmList: Array,
+  kegiatanList: Array,
 });
 
-// Default fallback list if prop is empty
-const defaultUmkm = [
-  {
-    id: 1,
-    nama: "Salak Pondoh Organik Tunggularum",
-    kategori: "Pertanian & Buah",
-    pemilik: "Pak Sugeng (Kelompok Tani Manunggal)",
-    kontak: "+62 812-3456-7891",
-    waLink: "https://wa.me/6281234567891?text=Halo%20Pak%20Sugeng,%20saya%20tertarik%20dengan%20produk%20Salak%20Pondoh%20Tunggularum",
-    lokasi: "RT 01 / Dusun Tunggularum",
-    deskripsi: "Salak Pondoh super hasil panen perkebunan warga Dusun Tunggularum di kaki Gunung Merapi. Manis, renyah, dan ditanam secara organik tanpa pestisida kimia.",
-    gambar: "/images/umkm/salak-pondoh.jpg",
-    driveLink: "https://drive.google.com/drive/folders/1SampleSalakFolderDriveTunggularum"
-  },
-  {
-    id: 2,
-    nama: "Kopi Merapi Arabika Tunggularum",
-    kategori: "Minuman & Olahan Kopi",
-    pemilik: "Ibu Rahma",
-    kontak: "+62 812-3456-7892",
-    waLink: "https://wa.me/6281234567892?text=Halo%20Ibu%20Rahma,%20saya%20tertarik%20pesan%20Kopi%20Merapi%20Arabika",
-    lokasi: "RT 02 / Dusun Tunggularum",
-    deskripsi: "Kopi racikan arabika lereng Gunung Merapi dipetik langsung dari kebun ketinggian 700 mdpl. Diproses dengan pemanggangan medium-dark untuk menciptakan rasa khas pegunungan.",
-    gambar: "/images/umkm/kopi-merapi.jpg",
-    driveLink: "https://drive.google.com/drive/folders/1SampleKopiFolderDriveTunggularum"
-  },
-  {
-    id: 3,
-    nama: "Kerajinan Anyaman Bambu Tradisional",
-    kategori: "Kerajinan Tangan & Souvenir",
-    pemilik: "Pak Maryono",
-    kontak: "+62 812-3456-7893",
-    waLink: "https://wa.me/6281234567893?text=Halo%20Pak%20Maryono,%20saya%20ingin%20tanya%20kerajinan%20anyaman%20bambu",
-    lokasi: "RT 03 / Dusun Tunggularum",
-    deskripsi: "Kerajinan tangan dari bambu lokal kualitas pilihan. Menerima pesanan besek hantaran, tampah, tudung saji, wadah souvenir, dan dekorasi rumah bernuansa etnik.",
-    gambar: "/images/umkm/kerajinan-bambu.jpg",
-    driveLink: "https://drive.google.com/drive/folders/1SampleBambuFolderDriveTunggularum"
-  },
-  {
-    id: 4,
-    nama: "Keripik & Dodol Salak Olahan KWT",
-    kategori: "Olahan Pangan & Oleh-Oleh",
-    pemilik: "Ibu Hastuti (Kelompok Wanita Tani)",
-    kontak: "+62 812-3456-7894",
-    waLink: "https://wa.me/6281234567894?text=Halo%20Ibu%20Hastuti,%20saya%20ingin%20pesan%20oleh-oleh%20Keripik%20Salak",
-    lokasi: "RT 02 / Dusun Tunggularum",
-    deskripsi: "Produk olahan buah salak buatan Kelompok Wanita Tani (KWT) Tunggularum. Diolah menggunakan teknologi penggorengan vakum (vacuum frying) tanpa bahan pengawet sintetis.",
-    gambar: "/images/umkm/salak-pondoh.jpg",
-    driveLink: "https://drive.google.com/drive/folders/1SampleKeripikFolderDriveTunggularum"
-  },
-  {
-    id: 5,
-    nama: "Agrowisata & Tour Kebun Salak",
-    kategori: "Jasa & Eduwisata Alam",
-    pemilik: "Pokdarwis Tunggularum (Pak Joko)",
-    kontak: "+62 812-3456-7895",
-    waLink: "https://wa.me/6281234567895?text=Halo%20Pokdarwis,%20saya%20ingin%20reservasi%20paket%20Tour%20Kebun%20Salak",
-    lokasi: "RT 04 / Dusun Tunggularum",
-    deskripsi: "Paket wisata edukasi petik buah salak langsung di kebun, jalan santai menyusuri mata air lereng Merapi, dan mencicipi hidangan kuliner tradisional dusun.",
-    gambar: "/images/umkm/kopi-merapi.jpg",
-    driveLink: "https://drive.google.com/drive/folders/1SampleWisataFolderDriveTunggularum"
-  }
-];
+const activeKegiatanList = computed(() => {
+  return props.kegiatanList || [];
+});
 
 const activeUmkmList = computed(() => {
-  return (props.umkmList && props.umkmList.length > 0) ? props.umkmList : defaultUmkm;
+  return props.umkmList || [];
 });
 
 // Responsive Window Width Tracker
@@ -596,7 +869,7 @@ const cardsPerView = computed(() => {
   return 3;                                // Desktop: 3 cards visible
 });
 
-// Carousel Slider State
+// UMKM Carousel Slider State
 const slideIndex = ref(0);
 const autoSlideTimer = ref(null);
 
@@ -606,7 +879,6 @@ const maxSlideSteps = computed(() => {
 });
 
 const slideTranslatePercentage = computed(() => {
-  // Translate percentage according to current slide index and cardsPerView ratio
   return slideIndex.value * (100 / cardsPerView.value);
 });
 
@@ -644,7 +916,7 @@ function stopAutoSlide() {
   }
 }
 
-// Touch Swipe Gesture for Mobile HP
+// Touch Swipe Gesture for UMKM Slider
 const touchStartX = ref(0);
 const touchEndX = ref(0);
 
@@ -664,7 +936,7 @@ function handleTouchEnd(e) {
   }
 }
 
-// Modal Detail State
+// Modal Detail State for UMKM
 const selectedUmkm = ref(null);
 const isModalOpen = ref(false);
 
@@ -678,6 +950,154 @@ function closeUmkmDetail() {
   isModalOpen.value = false;
   selectedUmkm.value = null;
   startAutoSlide();
+}
+
+// Modal Multi-Photo State for Kegiatan & Tradisi
+const selectedKegiatan = ref(null);
+const isKegiatanModalOpen = ref(false);
+const currentPhotoIndex = ref(0);
+
+function openKegiatanModal(item) {
+  selectedKegiatan.value = item;
+  currentPhotoIndex.value = 0;
+  isKegiatanModalOpen.value = true;
+}
+
+function closeKegiatanModal() {
+  isKegiatanModalOpen.value = false;
+  selectedKegiatan.value = null;
+  currentPhotoIndex.value = 0;
+}
+
+function nextPhoto() {
+  if (!selectedKegiatan.value || !selectedKegiatan.value.foto_dokumentasi) return;
+  const total = selectedKegiatan.value.foto_dokumentasi.length;
+  currentPhotoIndex.value = (currentPhotoIndex.value + 1) % total;
+}
+
+function prevPhoto() {
+  if (!selectedKegiatan.value || !selectedKegiatan.value.foto_dokumentasi) return;
+  const total = selectedKegiatan.value.foto_dokumentasi.length;
+  currentPhotoIndex.value = (currentPhotoIndex.value - 1 + total) % total;
+}
+
+function setPhotoIndex(idx) {
+  currentPhotoIndex.value = idx;
+}
+
+// Touch Swipe Gesture for Photo Modal
+const photoTouchStartX = ref(0);
+const photoTouchEndX = ref(0);
+
+function handlePhotoTouchStart(e) {
+  photoTouchStartX.value = e.touches[0].clientX;
+}
+
+function handlePhotoTouchEnd(e) {
+  photoTouchEndX.value = e.changedTouches[0].clientX;
+  const diff = photoTouchStartX.value - photoTouchEndX.value;
+  if (Math.abs(diff) > 40) {
+    if (diff > 0) {
+      nextPhoto();
+    } else {
+      prevPhoto();
+    }
+  }
+}
+
+// Galeri Carousel State (8 Foto per Halaman / Slide)
+const galeriSlideIndex = ref(0);
+const galeriPageSize = 8;
+
+const galeriPages = computed(() => {
+  const list = props.galeri || [];
+  if (list.length === 0) return [];
+  const pages = [];
+  for (let i = 0; i < list.length; i += galeriPageSize) {
+    pages.push(list.slice(i, i + galeriPageSize));
+  }
+  return pages;
+});
+
+const totalGaleriPages = computed(() => galeriPages.value.length);
+
+function nextGaleriSlide() {
+  if (galeriSlideIndex.value < totalGaleriPages.value - 1) {
+    galeriSlideIndex.value++;
+  }
+}
+
+function prevGaleriSlide() {
+  if (galeriSlideIndex.value > 0) {
+    galeriSlideIndex.value--;
+  }
+}
+
+function goToGaleriSlide(idx) {
+  galeriSlideIndex.value = idx;
+}
+
+// Touch Swipe Gesture for Galeri Grid Carousel
+const galeriGridTouchStartX = ref(0);
+const galeriGridTouchEndX = ref(0);
+
+function handleGaleriGridTouchStart(e) {
+  galeriGridTouchStartX.value = e.touches[0].clientX;
+}
+
+function handleGaleriGridTouchEnd(e) {
+  galeriGridTouchEndX.value = e.changedTouches[0].clientX;
+  const diff = galeriGridTouchStartX.value - galeriGridTouchEndX.value;
+  if (Math.abs(diff) > 40) {
+    if (diff > 0) {
+      nextGaleriSlide();
+    } else {
+      prevGaleriSlide();
+    }
+  }
+}
+
+// Modal Lightbox State for Galeri
+const selectedGaleriIndex = ref(0);
+const isGaleriModalOpen = ref(false);
+
+function openGaleriModal(index) {
+  selectedGaleriIndex.value = index;
+  isGaleriModalOpen.value = true;
+}
+
+function closeGaleriModal() {
+  isGaleriModalOpen.value = false;
+}
+
+function nextGaleri() {
+  if (!props.galeri || props.galeri.length === 0) return;
+  selectedGaleriIndex.value = (selectedGaleriIndex.value + 1) % props.galeri.length;
+}
+
+function prevGaleri() {
+  if (!props.galeri || props.galeri.length === 0) return;
+  selectedGaleriIndex.value = (selectedGaleriIndex.value - 1 + props.galeri.length) % props.galeri.length;
+}
+
+// Touch Swipe Gesture for Galeri Modal
+const galeriTouchStartX = ref(0);
+const galeriTouchEndX = ref(0);
+
+function handleGaleriTouchStart(e) {
+  galeriTouchStartX.value = e.touches[0].clientX;
+}
+
+function handleGaleriTouchEnd(e) {
+  galeriTouchEndX.value = e.changedTouches[0].clientX;
+  const diff = galeriTouchStartX.value - galeriTouchEndX.value;
+  if (Math.abs(diff) > 40) {
+    if (diff > 0) {
+      nextGaleri();
+    } else {
+      prevGaleri();
+    }
+  }
 }
 
 function formatDate(dateStr) {

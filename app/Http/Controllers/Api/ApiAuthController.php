@@ -17,16 +17,20 @@ class ApiAuthController extends Controller
     public function login(Request $request): JsonResponse
     {
         $request->validate([
-            'email' => ['required', 'email'],
+            'username' => ['required_without:email', 'string'],
+            'email' => ['required_without:username'],
             'password' => ['required'],
         ]);
 
-        $user = User::where('email', $request->email)->first();
+        $loginInput = $request->username ?? $request->email;
+        $user = User::where('username', $loginInput)
+            ->orWhere('email', $loginInput)
+            ->first();
 
         if (!$user || !Hash::check($request->password, $user->password)) {
             return response()->json([
                 'success' => false,
-                'message' => 'Email atau password yang Anda masukkan salah.',
+                'message' => 'Username atau password yang Anda masukkan salah.',
             ], 401);
         }
 
@@ -42,6 +46,7 @@ class ApiAuthController extends Controller
             'user' => [
                 'id' => $user->id,
                 'name' => $user->name,
+                'username' => $user->username,
                 'email' => $user->email,
             ],
         ]);

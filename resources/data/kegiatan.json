@@ -1,0 +1,68 @@
+[
+  {
+    "id": 1,
+    "judul": "Merti Dusun & Ziarah Makam Desa Tunggularum",
+    "lokasi": " Gedung Serbaguna & Kawasan Desa Tunggularum",
+    "deskripsi_singkat": "Tradisi adat tahunan ungkapan rasa syukur warga atas limpahan hasil bumi perkebunan dan kelestarian mata air.",
+    "deskripsi_lengkap": "Merti Dusun dan ziarah makam merupakan tradisi sakral tahunan warga Dusun Tunggularum. Rangkaian acara meliputi kirab gunungan hasil bumi, doa bersama lintas generasi di makam desa, kenduri massal, serta pagelaran seni tradisional sebagai wujud kerukunan dan rasa syukur warga.",
+    "cover": "/images/kegiatan/merti-dusun.jpg",
+    "foto_dokumentasi": [
+      {
+        "url": "/images/kegiatan/merti-dusun.jpg",
+        "caption": "Merti Dusun"
+      },
+      {
+        "url": "/images/kegiatan/foto/merti-dusun-1.jpg",
+        "caption": "Kirab hasil bumi"
+      },
+      {
+        "url": "/images/kegiatan/foto/merti-dusun-3.jpg",
+        "caption": "Prosesi Ziarah Makam Warga Tunggularum"
+      }
+    ]
+  },
+  {
+    "id": 2,
+    "judul": "Lomba Memperingati Hari Kemerdekaan Indonesia",
+    "lokasi": "Lapangan Volly Tunggularum",
+    "deskripsi_singkat": "Kegiatan tahunan memeriahkan hari kemerdekaan Indonesia yang selalu diadakan setiap bulan agustus",
+    "deskripsi_lengkap": "Kegiatan ini biasanya diadakan setiap bulan agustus. meliputi lomba balap karung, lomba makan kerupuk, lomba bakiak, lomba lari kelereng, dll. Lomba ini diikuti oleh anak-anak hingga dewasa, dengan hadiah menarik dan doorprize untuk semua peserta.",
+    "cover": "/images/kegiatan/lomba17an.jpeg",
+    "foto_dokumentasi": [
+      {
+        "url": "/images/kegiatan/foto/lomba17an-1.jpeg",
+        "caption": "Foto Bersama"
+      },
+      {
+        "url": "/images/kegiatan/foto/lomba17an-2.jpg",
+        "caption": "Lomba Ibu - ibu"
+      },
+      {
+        "url": "/images/kegiatan/foto/lomba17an-3.jpeg",
+        "caption": "Lomba dan senam ibu -ibu"
+      },
+      {
+        "url": "/images/kegiatan/foto/lomba17an-4.jpg",
+        "caption": "Lomba Anak - anak"
+      }
+    ]
+  },
+  {
+    "id": 3,
+    "judul": "Festival Panen Raya Salak Pondoh",
+    "lokasi": "Kebun Salak Manunggal Tunggularum",
+    "deskripsi_singkat": "Pesta rakyat dan pameran aneka olahan salak pondoh organik hasil panen petani dan Kelompok Wanita Tani dusun.",
+    "deskripsi_lengkap": "Festival yang memamerkan hasil bumi unggulan dusun, yakni Salak Pondoh Organik kualitas super. Acara dimeriahkan dengan wisata petik buah salak langsung di kebun bersama pengunjung, bazar olahan pangan KWT (keripik, dodol, sirup salak), dan pameran agribisnis dusun.",
+    "cover": "/images/kegiatan/festival-salak-1.jpg",
+    "foto_dokumentasi": [
+      {
+        "url": "/images/kegiatan/festival-salak-1.jpg",
+        "caption": "Pameran Buah Segar dan Produk Olahan Salak Pondoh KWT"
+      },
+      {
+        "url": "/images/kegiatan/festival-salak-2.jpg",
+        "caption": "Wisata Edukasi Petik Salak Bersama Pengunjung"
+      }
+    ]
+  }
+]

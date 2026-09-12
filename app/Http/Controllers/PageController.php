@@ -16,10 +16,16 @@ class PageController extends Controller
             ? json_decode(file_get_contents($umkmJsonPath), true)
             : [];
 
+        $kegiatanJsonPath = resource_path('data/kegiatan.json');
+        $kegiatanList = file_exists($kegiatanJsonPath)
+            ? json_decode(file_get_contents($kegiatanJsonPath), true)
+            : [];
+
         return Inertia::render('Public/Home', [
             'karangTaruna' => KarangTaruna::all(),
             'galeri' => Galeri::orderBy('tanggal', 'desc')->get(),
             'umkmList' => $umkmList,
+            'kegiatanList' => $kegiatanList,
         ]);
     }
 

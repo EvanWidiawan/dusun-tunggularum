@@ -1,14 +1,14 @@
 [
   {
     "id": 1,
-    "nama": "Salak Pondoh Organik Tunggularum",
-    "kategori": "Pertanian & Buah",
-    "pemilik": "Pak Sugeng (Kelompok Tani Manunggal)",
-    "kontak": "+62 812-3456-7891",
-    "waLink": "https://wa.me/6281234567891?text=Halo%20Pak%20Sugeng,%20saya%20tertarik%20dengan%20produk%20Salak%20Pondoh%20Tunggularum",
+    "nama": "Arum Kopi",
+    "kategori": "Minuman & Olahan Kopi",
+    "pemilik": "Pak Eko",
+    "kontak": "+62 853-2634-3453",
+    "waLink": "https://wa.me/6285326343453?text=Halo%20Pak%20Eko,%20saya%20tertarik%20dengan%20produk%20Arum%20Kopi%20Tunggularum",
     "lokasi": "RT 01 / Dusun Tunggularum",
-    "deskripsi": "Salak Pondoh super hasil panen perkebunan warga Dusun Tunggularum di kaki Gunung Merapi. Manis, renyah, dan ditanam secara organik tanpa pestisida kimia.",
-    "gambar": "/images/umkm/salak-pondoh.jpg",
+    "deskripsi": "Kopi Robusta khas Tunggularum dipetik langsung dari kebun ketinggian lebih dari 600 mdpl.",
+    "gambar": "/images/umkm/arum-kopi.jpg",
     "driveLink": "https://drive.google.com/drive/folders/1SampleSalakFolderDriveTunggularum"
   },
   {

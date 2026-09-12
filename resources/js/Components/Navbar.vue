@@ -16,15 +16,24 @@
           class="flex items-center gap-3 group focus:outline-hidden cursor-pointer"
         >
           <div
-            class="w-11 h-11 rounded-xl flex items-center justify-center shadow-md transition-colors duration-300"
+            class="w-11 h-11 rounded-xl flex items-center justify-center shadow-md transition-colors duration-300 overflow-hidden"
             :class="[
               isHeroState
                 ? 'bg-white/20 text-white backdrop-blur-md group-hover:bg-[#5FA8B5] group-hover:text-[#1F5C6B]'
                 : 'bg-[#1F5C6B] text-white group-hover:bg-[#5FA8B5]'
             ]"
           >
-            <!-- SVG Mountain Icon -->
+            <!-- Logo Image (Cukup taruh file logo di public/images/logo.png) -->
+            <img
+              v-if="hasCustomLogo"
+              :src="logoUrl"
+              alt="Logo Dusun Tunggularum"
+              class="w-full h-full object-contain p-1"
+              @error="hasCustomLogo = false"
+            />
+            <!-- SVG Mountain Icon Fallback -->
             <svg
+              v-else
               class="w-6 h-6"
               fill="none"
               stroke="currentColor"
@@ -81,29 +90,12 @@
           </a>
         </nav>
 
-        <!-- Right Side: Login Admin CTA & Mobile Toggle -->
-        <div class="flex items-center gap-3">
-          <!-- Button Login Admin (Desktop) -->
-          <Link
-            href="/login"
-            class="hidden sm:inline-flex items-center gap-2 px-4 py-2 rounded-xl border text-sm font-semibold transition-all duration-200 shadow-xs"
-            :class="[
-              isHeroState
-                ? 'border-white/80 text-white bg-black/10 backdrop-blur-xs hover:bg-white hover:text-[#1F5C6B]'
-                : 'border-[#1F5C6B] text-[#1F5C6B] hover:bg-[#1F5C6B] hover:text-white'
-            ]"
-          >
-            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 16l-4-4m0 0l4-4m-4 4h14m-5 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h7a3 3 0 013 3v1" />
-            </svg>
-            Login Admin
-          </Link>
-
-          <!-- Mobile Hamburger Button -->
+        <!-- Right Side: Mobile Drawer Menu Toggle -->
+        <div class="flex items-center lg:hidden">
           <button
             @click="mobileMenuOpen = !mobileMenuOpen"
             type="button"
-            class="lg:hidden p-2.5 rounded-xl focus:outline-hidden transition-colors"
+            class="p-2.5 rounded-xl focus:outline-hidden transition-colors"
             :class="[
               isHeroState
                 ? 'text-white hover:bg-white/20'
@@ -162,19 +154,6 @@
         >
           {{ item.name }}
         </a>
-
-        <div class="pt-4 border-t" :class="[isHeroState ? 'border-white/20' : 'border-[#3A4A4C]/15']">
-          <Link
-            href="/login"
-            @click="mobileMenuOpen = false"
-            class="w-full flex items-center justify-center gap-2 px-4 py-3 rounded-xl bg-[#5FA8B5] text-[#1F5C6B] font-bold text-base shadow-sm hover:bg-white transition-colors"
-          >
-            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 16l-4-4m0 0l4-4m-4 4h14m-5 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013 3v1" />
-            </svg>
-            Login Admin
-          </Link>
-        </div>
       </div>
     </transition>
   </header>
@@ -182,18 +161,20 @@
 
 <script setup>
 import { ref, onMounted, onUnmounted } from 'vue';
-import { Link, usePage, router } from '@inertiajs/vue3';
+import { usePage, router } from '@inertiajs/vue3';
 
 const mobileMenuOpen = ref(false);
 const isHeroState = ref(true);
 const activeSection = ref('beranda');
+const logoUrl = '/images/logo.jpeg';
+const hasCustomLogo = ref(true);
 const page = usePage();
 
 const navItems = [
   { name: 'Beranda', href: '#beranda', id: 'beranda' },
   { name: 'Profil', href: '#profil', id: 'profil' },
   { name: 'UMKM Desa', href: '#umkm', id: 'umkm' },
-  { name: 'Agenda', href: '#agenda', id: 'agenda' },
+  { name: 'Kegiatan & Tradisi', href: '#kegiatan', id: 'kegiatan' },
   { name: 'Galeri', href: '#galeri', id: 'galeri' },
   { name: 'Karang Taruna', href: '#karang-taruna', id: 'karang-taruna' },
   { name: 'Kontak', href: '#kontak', id: 'kontak' },

@@ -17,6 +17,7 @@
     "dependencies": {
         "@inertiajs/vite": "^3.6.1",
         "@vitejs/plugin-vue": "^6.0.8",
+        "leaflet": "^1.9.4",
         "vue": "^3.5.41"
     }
 }
