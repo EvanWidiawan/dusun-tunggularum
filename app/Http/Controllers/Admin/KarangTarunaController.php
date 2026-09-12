@@ -34,7 +34,16 @@ class KarangTarunaController extends Controller
         ]);
 
         if ($request->hasFile('foto')) {
-            $validated['foto'] = $request->file('foto')->store('karang-taruna', 'public');
+            $file = $request->file('foto');
+            $fileName = time() . '_' . uniqid() . '.' . $file->getClientOriginalExtension();
+            $destinationPath = public_path('uploads/karang-taruna');
+            
+            if (!file_exists($destinationPath)) {
+                mkdir($destinationPath, 0755, true);
+            }
+            
+            $file->move($destinationPath, $fileName);
+            $validated['foto'] = 'uploads/karang-taruna/' . $fileName;
         }
 
         KarangTaruna::create($validated);
@@ -55,10 +64,26 @@ class KarangTarunaController extends Controller
         ]);
 
         if ($request->hasFile('foto')) {
-            if ($karangTaruna->foto && Storage::disk('public')->exists($karangTaruna->foto)) {
-                Storage::disk('public')->delete($karangTaruna->foto);
+            if ($karangTaruna->foto) {
+                $oldPath = public_path($karangTaruna->foto);
+                if (file_exists($oldPath) && !is_dir($oldPath)) {
+                    @unlink($oldPath);
+                }
+                if (Storage::disk('public')->exists($karangTaruna->foto)) {
+                    Storage::disk('public')->delete($karangTaruna->foto);
+                }
             }
-            $validated['foto'] = $request->file('foto')->store('karang-taruna', 'public');
+
+            $file = $request->file('foto');
+            $fileName = time() . '_' . uniqid() . '.' . $file->getClientOriginalExtension();
+            $destinationPath = public_path('uploads/karang-taruna');
+            
+            if (!file_exists($destinationPath)) {
+                mkdir($destinationPath, 0755, true);
+            }
+            
+            $file->move($destinationPath, $fileName);
+            $validated['foto'] = 'uploads/karang-taruna/' . $fileName;
         }
 
         $karangTaruna->update($validated);
@@ -71,8 +96,14 @@ class KarangTarunaController extends Controller
      */
     public function destroy(KarangTaruna $karangTaruna)
     {
-        if ($karangTaruna->foto && Storage::disk('public')->exists($karangTaruna->foto)) {
-            Storage::disk('public')->delete($karangTaruna->foto);
+        if ($karangTaruna->foto) {
+            $oldPath = public_path($karangTaruna->foto);
+            if (file_exists($oldPath) && !is_dir($oldPath)) {
+                @unlink($oldPath);
+            }
+            if (Storage::disk('public')->exists($karangTaruna->foto)) {
+                Storage::disk('public')->delete($karangTaruna->foto);
+            }
         }
 
         $karangTaruna->delete();

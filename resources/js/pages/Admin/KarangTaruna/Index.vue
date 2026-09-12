@@ -56,8 +56,9 @@
                   <div class="w-12 h-12 rounded-full bg-[#1F5C6B]/10 overflow-hidden border border-[#1F5C6B]/20 flex items-center justify-center shrink-0 shadow-2xs">
                     <img
                       v-if="member.foto"
-                      :src="'/storage/' + member.foto"
+                      :src="getImageUrl(member.foto)"
                       :alt="member.nama"
+                      @error="handleImageFallback($event)"
                       class="w-full h-full object-cover"
                     />
                     <svg v-else class="w-6 h-6 text-[#1F5C6B]/40" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -225,6 +226,7 @@
 import { ref, computed } from 'vue';
 import { useForm, router } from '@inertiajs/vue3';
 import AdminLayout from '../../../Layouts/AdminLayout.vue';
+import { getImageUrl, handleImageFallback } from '../../../Utils/image';
 
 const props = defineProps({
   members: Array,

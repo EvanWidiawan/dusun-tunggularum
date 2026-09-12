@@ -25,15 +25,35 @@ Route::middleware([TrackPageVisit::class])->group(function () {
 
 /*
 |--------------------------------------------------------------------------
-| Storage Asset Route (Menjamin foto selalu muncul di semua server & cPanel)
+| Asset Serving Fallback Routes (Menjamin gambar selalu muncul)
 |--------------------------------------------------------------------------
 */
-Route::get('/storage/{path}', function ($path) {
-    $filePath = storage_path('app/public/' . $path);
-    if (!file_exists($filePath)) {
-        abort(404);
+Route::get('/uploads/{path}', function ($path) {
+    $publicPath = public_path('uploads/' . $path);
+    if (file_exists($publicPath) && !is_dir($publicPath)) {
+        return response()->file($publicPath);
     }
-    return response()->file($filePath);
+    $storagePath = storage_path('app/public/' . $path);
+    if (file_exists($storagePath) && !is_dir($storagePath)) {
+        return response()->file($storagePath);
+    }
+    abort(404);
+})->where('path', '.*');
+
+Route::get('/storage/{path}', function ($path) {
+    $publicUploadPath = public_path('uploads/' . $path);
+    if (file_exists($publicUploadPath) && !is_dir($publicUploadPath)) {
+        return response()->file($publicUploadPath);
+    }
+    $filePath = storage_path('app/public/' . $path);
+    if (file_exists($filePath) && !is_dir($filePath)) {
+        return response()->file($filePath);
+    }
+    $publicPath = public_path('storage/' . $path);
+    if (file_exists($publicPath) && !is_dir($publicPath)) {
+        return response()->file($publicPath);
+    }
+    abort(404);
 })->where('path', '.*');
 
 /*

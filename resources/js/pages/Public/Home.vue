@@ -341,8 +341,9 @@
                 <!-- Image -->
                 <img
                   v-if="item.gambar"
-                  :src="'/storage/' + item.gambar"
+                  :src="getImageUrl(item.gambar)"
                   :alt="item.judul"
+                  @error="handleImageFallback($event)"
                   class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
                 />
                 <div v-else class="w-full h-full flex items-center justify-center text-[#1F5C6B]/40">
@@ -440,8 +441,9 @@
           <div class="w-24 h-24 rounded-full bg-[#1F5C6B]/10 border-2 border-[#1F5C6B] overflow-hidden flex items-center justify-center mb-4">
             <img
               v-if="member.foto"
-              :src="'/storage/' + member.foto"
+              :src="getImageUrl(member.foto)"
               :alt="member.nama"
+              @error="handleImageFallback($event)"
               class="w-full h-full object-cover"
             />
             <svg v-else class="w-12 h-12 text-[#1F5C6B]/40" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -785,8 +787,9 @@
           >
             <img
               v-if="galeri[selectedGaleriIndex].gambar"
-              :src="'/storage/' + galeri[selectedGaleriIndex].gambar"
+              :src="getImageUrl(galeri[selectedGaleriIndex].gambar)"
               :alt="galeri[selectedGaleriIndex].judul"
+              @error="handleImageFallback($event)"
               class="max-w-full max-h-full object-contain"
             />
             <div v-else class="text-white/50 text-sm">
@@ -839,6 +842,7 @@
 import { ref, computed, onMounted, onUnmounted } from 'vue';
 import PublicLayout from '../../Layouts/PublicLayout.vue';
 import LeafletMap from '../../Components/LeafletMap.vue';
+import { getImageUrl, handleImageFallback } from '../../Utils/image';
 
 const props = defineProps({
   karangTaruna: Array,

@@ -48,8 +48,9 @@
             <div class="h-48 bg-[#1F5C6B]/10 overflow-hidden relative">
               <img
                 v-if="item.gambar"
-                :src="'/storage/' + item.gambar"
+                :src="getImageUrl(item.gambar)"
                 :alt="item.judul"
+                @error="handleImageFallback($event)"
                 class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
               />
               <div v-else class="w-full h-full flex items-center justify-center text-[#1F5C6B]/40">
@@ -185,6 +186,7 @@
 import { ref, computed } from 'vue';
 import { useForm, router } from '@inertiajs/vue3';
 import AdminLayout from '../../../Layouts/AdminLayout.vue';
+import { getImageUrl, handleImageFallback } from '../../../Utils/image';
 
 const props = defineProps({
   galleries: Array,

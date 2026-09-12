@@ -25,12 +25,21 @@ class ApiKarangTarunaController extends Controller
         $validated = $request->validate([
             'nama' => ['required', 'string', 'max:255'],
             'jabatan' => ['required', 'string', 'max:255'],
-            'foto' => ['nullable', 'image', 'mimes:jpeg,png,jpg,webp', 'max:2048'],
+            'foto' => ['nullable', 'image', 'mimes:jpeg,png,jpg,webp,gif', 'max:10240'],
             'deskripsi' => ['nullable', 'string'],
         ]);
 
         if ($request->hasFile('foto')) {
-            $validated['foto'] = $request->file('foto')->store('karang-taruna', 'public');
+            $file = $request->file('foto');
+            $fileName = time() . '_' . uniqid() . '.' . $file->getClientOriginalExtension();
+            $destinationPath = public_path('uploads/karang-taruna');
+            
+            if (!file_exists($destinationPath)) {
+                mkdir($destinationPath, 0755, true);
+            }
+            
+            $file->move($destinationPath, $fileName);
+            $validated['foto'] = 'uploads/karang-taruna/' . $fileName;
         }
 
         $member = KarangTaruna::create($validated);
@@ -57,15 +66,31 @@ class ApiKarangTarunaController extends Controller
         $validated = $request->validate([
             'nama' => ['required', 'string', 'max:255'],
             'jabatan' => ['required', 'string', 'max:255'],
-            'foto' => ['nullable', 'image', 'mimes:jpeg,png,jpg,webp', 'max:2048'],
+            'foto' => ['nullable', 'image', 'mimes:jpeg,png,jpg,webp,gif', 'max:10240'],
             'deskripsi' => ['nullable', 'string'],
         ]);
 
         if ($request->hasFile('foto')) {
-            if ($karangTaruna->foto && Storage::disk('public')->exists($karangTaruna->foto)) {
-                Storage::disk('public')->delete($karangTaruna->foto);
+            if ($karangTaruna->foto) {
+                $oldPath = public_path($karangTaruna->foto);
+                if (file_exists($oldPath) && !is_dir($oldPath)) {
+                    @unlink($oldPath);
+                }
+                if (Storage::disk('public')->exists($karangTaruna->foto)) {
+                    Storage::disk('public')->delete($karangTaruna->foto);
+                }
             }
-            $validated['foto'] = $request->file('foto')->store('karang-taruna', 'public');
+
+            $file = $request->file('foto');
+            $fileName = time() . '_' . uniqid() . '.' . $file->getClientOriginalExtension();
+            $destinationPath = public_path('uploads/karang-taruna');
+            
+            if (!file_exists($destinationPath)) {
+                mkdir($destinationPath, 0755, true);
+            }
+            
+            $file->move($destinationPath, $fileName);
+            $validated['foto'] = 'uploads/karang-taruna/' . $fileName;
         }
 
         $karangTaruna->update($validated);
@@ -81,8 +106,14 @@ class ApiKarangTarunaController extends Controller
     {
         $karangTaruna = KarangTaruna::findOrFail($id);
 
-        if ($karangTaruna->foto && Storage::disk('public')->exists($karangTaruna->foto)) {
-            Storage::disk('public')->delete($karangTaruna->foto);
+        if ($karangTaruna->foto) {
+            $oldPath = public_path($karangTaruna->foto);
+            if (file_exists($oldPath) && !is_dir($oldPath)) {
+                @unlink($oldPath);
+            }
+            if (Storage::disk('public')->exists($karangTaruna->foto)) {
+                Storage::disk('public')->delete($karangTaruna->foto);
+            }
         }
 
         $karangTaruna->delete();

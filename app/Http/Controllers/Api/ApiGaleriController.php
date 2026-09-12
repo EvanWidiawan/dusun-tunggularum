@@ -24,13 +24,24 @@ class ApiGaleriController extends Controller
     {
         $validated = $request->validate([
             'judul' => ['required', 'string', 'max:255'],
-            'gambar' => ['required', 'image', 'mimes:jpeg,png,jpg,webp', 'max:3072'],
+            'gambar' => ['required', 'image', 'mimes:jpeg,png,jpg,webp,gif', 'max:10240'],
             'kategori' => ['nullable', 'string', 'max:100'],
-            'tanggal' => ['required', 'date'],
+            'tanggal' => ['nullable', 'date'],
         ]);
 
+        $validated['tanggal'] = $validated['tanggal'] ?? now()->toDateString();
+
         if ($request->hasFile('gambar')) {
-            $validated['gambar'] = $request->file('gambar')->store('galeri', 'public');
+            $file = $request->file('gambar');
+            $fileName = time() . '_' . uniqid() . '.' . $file->getClientOriginalExtension();
+            $destinationPath = public_path('uploads/galeri');
+            
+            if (!file_exists($destinationPath)) {
+                mkdir($destinationPath, 0755, true);
+            }
+            
+            $file->move($destinationPath, $fileName);
+            $validated['gambar'] = 'uploads/galeri/' . $fileName;
         }
 
         $galeri = Galeri::create($validated);
@@ -56,16 +67,34 @@ class ApiGaleriController extends Controller
 
         $validated = $request->validate([
             'judul' => ['required', 'string', 'max:255'],
-            'gambar' => ['nullable', 'image', 'mimes:jpeg,png,jpg,webp', 'max:3072'],
+            'gambar' => ['nullable', 'image', 'mimes:jpeg,png,jpg,webp,gif', 'max:10240'],
             'kategori' => ['nullable', 'string', 'max:100'],
-            'tanggal' => ['required', 'date'],
+            'tanggal' => ['nullable', 'date'],
         ]);
 
+        $validated['tanggal'] = $validated['tanggal'] ?? $galeri->tanggal ?? now()->toDateString();
+
         if ($request->hasFile('gambar')) {
-            if ($galeri->gambar && Storage::disk('public')->exists($galeri->gambar)) {
-                Storage::disk('public')->delete($galeri->gambar);
+            if ($galeri->gambar) {
+                $oldPath = public_path($galeri->gambar);
+                if (file_exists($oldPath) && !is_dir($oldPath)) {
+                    @unlink($oldPath);
+                }
+                if (Storage::disk('public')->exists($galeri->gambar)) {
+                    Storage::disk('public')->delete($galeri->gambar);
+                }
             }
-            $validated['gambar'] = $request->file('gambar')->store('galeri', 'public');
+
+            $file = $request->file('gambar');
+            $fileName = time() . '_' . uniqid() . '.' . $file->getClientOriginalExtension();
+            $destinationPath = public_path('uploads/galeri');
+            
+            if (!file_exists($destinationPath)) {
+                mkdir($destinationPath, 0755, true);
+            }
+            
+            $file->move($destinationPath, $fileName);
+            $validated['gambar'] = 'uploads/galeri/' . $fileName;
         }
 
         $galeri->update($validated);
@@ -81,8 +110,14 @@ class ApiGaleriController extends Controller
     {
         $galeri = Galeri::findOrFail($id);
 
-        if ($galeri->gambar && Storage::disk('public')->exists($galeri->gambar)) {
-            Storage::disk('public')->delete($galeri->gambar);
+        if ($galeri->gambar) {
+            $oldPath = public_path($galeri->gambar);
+            if (file_exists($oldPath) && !is_dir($oldPath)) {
+                @unlink($oldPath);
+            }
+            if (Storage::disk('public')->exists($galeri->gambar)) {
+                Storage::disk('public')->delete($galeri->gambar);
+            }
         }
 
         $galeri->delete();
