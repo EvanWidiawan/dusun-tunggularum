@@ -13,8 +13,12 @@ class LoginController extends Controller
     /**
      * Tampilkan halaman login admin.
      */
-    public function showLoginForm(): Response
+    public function showLoginForm()
     {
+        if (Auth::check()) {
+            return redirect('/admin/dashboard');
+        }
+
         return Inertia::render('Auth/Login');
     }
 

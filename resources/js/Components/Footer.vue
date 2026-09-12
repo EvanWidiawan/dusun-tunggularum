@@ -107,7 +107,7 @@
           <p>© 2026 Pemerintah Dusun Tunggularum. Seluruh Hak Cipta Dilindungi.</p>
           <!-- Subtle Hidden Lock Icon Link for Admin Access -->
           <Link
-            href="/login"
+            :href="$page.props.auth?.user ? '/admin/dashboard' : '/login'"
             title="Akses Pengelola Admin"
             class="text-[#EEF3F3]/40 hover:text-[#5FA8B5] transition-colors p-1 rounded-md"
           >

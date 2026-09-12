@@ -4,21 +4,14 @@ import { createInertiaApp } from '@inertiajs/vue3';
 import { resolvePageComponent } from 'laravel-vite-plugin/inertia-helpers';
 
 createInertiaApp({
-    title: (title) => title ? `${title} - Desa Merapi` : 'Website Profil Desa Merapi',
-    resolve: (name) => {
-        const pages = import.meta.glob([
-            './pages/**/*.vue',
-            './Pages/**/*.vue'
-        ]);
-        return resolvePageComponent(`./pages/${name}.vue`, pages)
-            .catch(() => resolvePageComponent(`./Pages/${name}.vue`, pages));
-    },
+    title: (title) => title ? `${title} - Dusun Tunggularum` : 'Website Profil Dusun Tunggularum',
+    resolve: (name) => resolvePageComponent(`./pages/${name}.vue`, import.meta.glob('./pages/**/*.vue')),
     setup({ el, App, props, plugin }) {
         createApp({ render: () => h(App, props) })
             .use(plugin)
             .mount(el);
     },
     progress: {
-        color: '#A44A2C',
+        color: '#1F5C6B',
     },
 });
