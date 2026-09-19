@@ -6,10 +6,12 @@
 
       <!-- Header & Branding -->
       <div class="text-center space-y-3">
-        <div class="inline-flex items-center justify-center w-14 h-14 rounded-2xl bg-[#1F5C6B] text-white shadow-md mb-2">
-          <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
-          </svg>
+        <div class="inline-flex items-center justify-center w-20 h-20 rounded-full bg-white shadow-lg mb-2 overflow-hidden p-1 border-2 border-[#1F5C6B]/20">
+          <img
+            :src="logoUrl"
+            alt="Logo Dusun Tunggularum"
+            class="w-full h-full object-contain rounded-full"
+          />
         </div>
         <h1 class="font-display font-bold text-3xl text-[#1F5C6B]">Login Admin</h1>
         <p class="text-sm text-[#5E6E6E]">
@@ -95,6 +97,8 @@
 
 <script setup>
 import { useForm, Link } from '@inertiajs/vue3';
+
+const logoUrl = '/images/logo.png';
 
 const form = useForm({
   username: '',

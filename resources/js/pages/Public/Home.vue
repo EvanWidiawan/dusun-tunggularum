@@ -343,6 +343,8 @@
                   v-if="item.gambar"
                   :src="getImageUrl(item.gambar)"
                   :alt="item.judul"
+                  loading="lazy"
+                  decoding="async"
                   @error="handleImageFallback($event)"
                   class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
                 />

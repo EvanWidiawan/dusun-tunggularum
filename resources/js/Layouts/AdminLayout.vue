@@ -23,15 +23,15 @@
     >
       <!-- Sidebar Branding Header -->
       <div class="h-20 flex items-center gap-3.5 px-6 border-b border-white/10 shrink-0">
-        <div class="w-10 h-10 rounded-xl bg-[#5FA8B5] text-[#1F5C6B] flex items-center justify-center shadow-md font-bold text-xl overflow-hidden">
+        <div class="w-11 h-11 rounded-full bg-white text-[#1F5C6B] flex items-center justify-center shadow-md overflow-hidden p-0.5 border border-white/30 shrink-0">
           <img
             v-if="hasCustomLogo"
             :src="logoUrl"
             alt="Logo Dusun Tunggularum"
-            class="w-full h-full object-contain p-1"
+            class="w-full h-full object-contain rounded-full"
             @error="hasCustomLogo = false"
           />
-          <svg v-else class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <svg v-else class="w-6 h-6 text-[#1F5C6B]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 20l7-14 4 8 2-4 5 10H3z" />
           </svg>
         </div>

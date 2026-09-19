@@ -16,25 +16,20 @@
           class="flex items-center gap-3 group focus:outline-hidden cursor-pointer"
         >
           <div
-            class="w-11 h-11 rounded-xl flex items-center justify-center shadow-md transition-colors duration-300 overflow-hidden"
-            :class="[
-              isHeroState
-                ? 'bg-white/20 text-white backdrop-blur-md group-hover:bg-[#5FA8B5] group-hover:text-[#1F5C6B]'
-                : 'bg-[#1F5C6B] text-white group-hover:bg-[#5FA8B5]'
-            ]"
+            class="w-11 h-11 rounded-full flex items-center justify-center shadow-md transition-all duration-300 overflow-hidden bg-white p-0.5 border border-white/40 shrink-0"
           >
-            <!-- Logo Image (Cukup taruh file logo di public/images/logo.png) -->
+            <!-- Logo Image -->
             <img
               v-if="hasCustomLogo"
               :src="logoUrl"
               alt="Logo Dusun Tunggularum"
-              class="w-full h-full object-contain p-1"
+              class="w-full h-full object-contain rounded-full"
               @error="hasCustomLogo = false"
             />
             <!-- SVG Mountain Icon Fallback -->
             <svg
               v-else
-              class="w-6 h-6"
+              class="w-6 h-6 text-[#1F5C6B]"
               fill="none"
               stroke="currentColor"
               viewBox="0 0 24 24"
@@ -166,7 +161,7 @@ import { usePage, router } from '@inertiajs/vue3';
 const mobileMenuOpen = ref(false);
 const isHeroState = ref(true);
 const activeSection = ref('beranda');
-const logoUrl = '/images/logo.jpeg';
+const logoUrl = '/images/logo.png';
 const hasCustomLogo = ref(true);
 const page = usePage();
 
