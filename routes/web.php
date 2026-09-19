@@ -25,7 +25,7 @@ Route::middleware([TrackPageVisit::class])->group(function () {
 
 /*
 |--------------------------------------------------------------------------
-| Asset Serving Fallback Routes (Menjamin gambar selalu muncul)
+| Asset Serving Fallback Routes (Menjamin gambar & favicon selalu muncul)
 |--------------------------------------------------------------------------
 */
 Route::get('/uploads/{path}', function ($path) {
@@ -53,6 +53,9 @@ Route::get('/storage/{path}', function ($path) {
     if (file_exists($publicPath) && !is_dir($publicPath)) {
         return response()->file($publicPath);
     }
+    abort(404);
+})->where('path', '.*');
+
 Route::get('/images/{path}', function ($path) {
     $publicPath = public_path('images/' . $path);
     if (file_exists($publicPath) && !is_dir($publicPath)) {
