@@ -53,8 +53,37 @@ Route::get('/storage/{path}', function ($path) {
     if (file_exists($publicPath) && !is_dir($publicPath)) {
         return response()->file($publicPath);
     }
+Route::get('/images/{path}', function ($path) {
+    $publicPath = public_path('images/' . $path);
+    if (file_exists($publicPath) && !is_dir($publicPath)) {
+        return response()->file($publicPath);
+    }
     abort(404);
 })->where('path', '.*');
+
+Route::get('/favicon-32x32.png', function () {
+    $path = public_path('favicon-32x32.png');
+    if (file_exists($path)) {
+        return response()->file($path);
+    }
+    abort(404);
+});
+
+Route::get('/favicon.png', function () {
+    $path = public_path('favicon.png');
+    if (file_exists($path)) {
+        return response()->file($path);
+    }
+    abort(404);
+});
+
+Route::get('/apple-touch-icon.png', function () {
+    $path = public_path('apple-touch-icon.png');
+    if (file_exists($path)) {
+        return response()->file($path);
+    }
+    abort(404);
+});
 
 /*
 |--------------------------------------------------------------------------

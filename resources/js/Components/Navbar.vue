@@ -21,10 +21,10 @@
             <!-- Logo Image -->
             <img
               v-if="hasCustomLogo"
-              :src="logoUrl"
+              :src="currentLogoUrl"
               alt="Logo Dusun Tunggularum"
               class="w-full h-full object-contain rounded-full"
-              @error="hasCustomLogo = false"
+              @error="handleLogoError"
             />
             <!-- SVG Mountain Icon Fallback -->
             <svg
@@ -161,8 +161,18 @@ import { usePage, router } from '@inertiajs/vue3';
 const mobileMenuOpen = ref(false);
 const isHeroState = ref(true);
 const activeSection = ref('beranda');
-const logoUrl = '/images/logo.png';
+const currentLogoUrl = ref('/images/logo.png');
 const hasCustomLogo = ref(true);
+
+function handleLogoError() {
+  if (currentLogoUrl.value === '/images/logo.png') {
+    currentLogoUrl.value = '/images/logo.webp';
+  } else if (currentLogoUrl.value === '/images/logo.webp') {
+    currentLogoUrl.value = '/images/logo.jpeg';
+  } else {
+    hasCustomLogo.value = false;
+  }
+}
 const page = usePage();
 
 const navItems = [

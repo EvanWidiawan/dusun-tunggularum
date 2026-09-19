@@ -26,10 +26,10 @@
         <div class="w-11 h-11 rounded-full bg-white text-[#1F5C6B] flex items-center justify-center shadow-md overflow-hidden p-0.5 border border-white/30 shrink-0">
           <img
             v-if="hasCustomLogo"
-            :src="logoUrl"
+            :src="currentLogoUrl"
             alt="Logo Dusun Tunggularum"
             class="w-full h-full object-contain rounded-full"
-            @error="hasCustomLogo = false"
+            @error="handleLogoError"
           />
           <svg v-else class="w-6 h-6 text-[#1F5C6B]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 20l7-14 4 8 2-4 5 10H3z" />
@@ -165,8 +165,18 @@ defineProps({
 });
 
 const sidebarOpen = ref(false);
-const logoUrl = '/images/logo.png';
+const currentLogoUrl = ref('/images/logo.png');
 const hasCustomLogo = ref(true);
+
+function handleLogoError() {
+  if (currentLogoUrl.value === '/images/logo.png') {
+    currentLogoUrl.value = '/images/logo.webp';
+  } else if (currentLogoUrl.value === '/images/logo.webp') {
+    currentLogoUrl.value = '/images/logo.jpeg';
+  } else {
+    hasCustomLogo.value = false;
+  }
+}
 const page = usePage();
 
 const userName = computed(() => {

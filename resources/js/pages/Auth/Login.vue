@@ -8,9 +8,10 @@
       <div class="text-center space-y-3">
         <div class="inline-flex items-center justify-center w-20 h-20 rounded-full bg-white shadow-lg mb-2 overflow-hidden p-1 border-2 border-[#1F5C6B]/20">
           <img
-            :src="logoUrl"
+            :src="currentLogoUrl"
             alt="Logo Dusun Tunggularum"
             class="w-full h-full object-contain rounded-full"
+            @error="handleLogoError"
           />
         </div>
         <h1 class="font-display font-bold text-3xl text-[#1F5C6B]">Login Admin</h1>
@@ -96,9 +97,18 @@
 </template>
 
 <script setup>
+import { ref } from 'vue';
 import { useForm, Link } from '@inertiajs/vue3';
 
-const logoUrl = '/images/logo.png';
+const currentLogoUrl = ref('/images/logo.png');
+
+function handleLogoError() {
+  if (currentLogoUrl.value === '/images/logo.png') {
+    currentLogoUrl.value = '/images/logo.webp';
+  } else if (currentLogoUrl.value === '/images/logo.webp') {
+    currentLogoUrl.value = '/images/logo.jpeg';
+  }
+}
 
 const form = useForm({
   username: '',
