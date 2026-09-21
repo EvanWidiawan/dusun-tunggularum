@@ -16,7 +16,7 @@
         "caption": "Kirab hasil bumi"
       },
       {
-        "url": "/images/kegiatan/foto/merti-dusun-3.jpg",
+        "url": "/images/kegiatan/foto/ziarah.jpeg",
         "caption": "Prosesi Ziarah Makam Warga Tunggularum"
       }
     ]
@@ -38,7 +38,7 @@
         "caption": "Lomba Ibu - ibu"
       },
       {
-        "url": "/images/kegiatan/foto/lomba17an-3.jpeg",
+        "url": "/images/kegiatan/foto/senam.jpg",
         "caption": "Lomba dan senam ibu -ibu"
       },
       {
@@ -49,11 +49,11 @@
   },
   {
     "id": 3,
-    "judul": "Festival Panen Raya Salak Pondoh",
-    "lokasi": "Kebun Salak Manunggal Tunggularum",
-    "deskripsi_singkat": "Pesta rakyat dan pameran aneka olahan salak pondoh organik hasil panen petani dan Kelompok Wanita Tani dusun.",
-    "deskripsi_lengkap": "Festival yang memamerkan hasil bumi unggulan dusun, yakni Salak Pondoh Organik kualitas super. Acara dimeriahkan dengan wisata petik buah salak langsung di kebun bersama pengunjung, bazar olahan pangan KWT (keripik, dodol, sirup salak), dan pameran agribisnis dusun.",
-    "cover": "/images/kegiatan/festival-salak-1.jpg",
+    "judul": "Malam Tirakatan",
+    "lokasi": " Gedung Serbaguna & Kawasan Desa Tunggularum",
+    "deskripsi_singkat": "Upacara adat malam tirakatan yang diikuti oleh seluruh warga dusun, dengan iringan tabuhan gamelan dan shalawat, dilanjutkan dengan pagelaran wayang kulit semalam suntuk.",
+    "deskripsi_lengkap": "Malam Tirakatan merupakan puncak peringatan hari kemerdekaan Republik Indonesia yang diselenggarakan setiap tanggal 16 Agustus. Acara dibuka dengan prosesi hormat bendera Merah Putih dan menyanyikan lagu Indonesia Raya.Dilanjutkan dengan renungan perjuangan para pahlawan bangsa, persembahan paduan suara dari Tim Magenta, serta pembacaan doa lintas agama yang diiringi alunan musik gamelan dan shalawat. Malam ditutup dengan pertunjukan wayang kulit semalam suntuk dengan lakon ‘Semar Mbangun Kahyangan’ yang menampilkan para dalang maestro dari paguyuban dalang se-DIY.",
+    "cover": "/images/kegiatan/tirakatan.jpg",
     "foto_dokumentasi": [
       {
         "url": "/images/kegiatan/festival-salak-1.jpg",

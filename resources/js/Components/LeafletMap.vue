@@ -12,9 +12,9 @@ import L from 'leaflet';
 const mapContainer = ref(null);
 let map = null;
 
-// Coordinates for Dusun Tunggularum, Wonokerto, Turi, Sleman, D.I. Yogyakarta
-const latitude = -7.587843;
-const longitude = 110.384712;
+// Coordinates for C92V+G85, Tunggularum, Wono Kerto, Kec. Turi, Kabupaten Sleman, D.I. Yogyakarta 55551
+const latitude = -7.598738;
+const longitude = 110.393359;
 
 onMounted(() => {
   if (!mapContainer.value) return;
@@ -22,7 +22,7 @@ onMounted(() => {
   // Initialize Leaflet Map centered at Dusun Tunggularum
   map = L.map(mapContainer.value, {
     center: [latitude, longitude],
-    zoom: 14,
+    zoom: 16,
     zoomControl: true,
   });
 
@@ -58,15 +58,15 @@ onMounted(() => {
       <h4 style="font-family: 'Lora', serif; font-weight: 700; color: #1F5C6B; font-size: 16px; margin: 0 0 4px 0;">
         Dusun Tunggularum
       </h4>
-      <p style="font-size: 12px; color: #5E6E6E; margin: 0 0 8px 0; font-weight: 500;">
-        Kalurahan Wonokerto, Kapanewon Turi, Sleman, D.I. Yogyakarta
+      <p style="font-size: 11px; color: #5E6E6E; margin: 0 0 8px 0; font-weight: 500; line-height: 1.4;">
+        C92V+G85, Tunggularum, Wono Kerto, Kec. Turi, Kabupaten Sleman, D.I. Yogyakarta 55551
       </p>
       <div style="display: inline-block; padding: 4px 10px; background-color: #1F5C6B; color: #ffffff; border-radius: 8px; font-size: 11px; font-weight: 700; margin-bottom: 8px;">
         📍 Kaki Gunung Merapi (±700 mdpl)
       </div>
       <div style="padding-top: 6px; border-top: 1px solid #e5e7eb;">
         <a
-          href="https://www.google.com/maps/search/?api=1&query=${latitude},${longitude}"
+          href="https://www.google.com/maps/search/?api=1&query=C92V%2BG85,+Tunggularum,+Wono+Kerto,+Kec.+Turi,+Kabupaten+Sleman,+Daerah+Istimewa+Yogyakarta+55551"
           target="_blank"
           rel="noopener noreferrer"
           style="color: #5FA8B5; font-weight: 700; font-size: 12px; text-decoration: none;"

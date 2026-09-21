@@ -482,7 +482,7 @@
           <div class="space-y-4 text-sm text-[#5E6E6E]">
             <div>
               <p class="font-semibold text-[#1F5C6B]">Alamat Dusun:</p>
-              <p>Dusun Tunggularum, Kalurahan Wonokerto, Kapanewon Turi, Kabupaten Sleman, D.I. Yogyakarta</p>
+              <p>C92V+G85, Tunggularum, Wono Kerto, Kec. Turi, Kabupaten Sleman, Daerah Istimewa Yogyakarta 55551</p>
             </div>
             <div>
               <p class="font-semibold text-[#1F5C6B]">Telepon / WhatsApp Dukuh / Pengurus:</p>
