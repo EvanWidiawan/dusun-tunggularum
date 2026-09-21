@@ -8,55 +8,31 @@
     "waLink": "https://wa.me/6285326343453?text=Halo%20Pak%20Eko,%20saya%20tertarik%20dengan%20produk%20Arum%20Kopi%20Tunggularum",
     "lokasi": "RT 01 / Dusun Tunggularum",
     "deskripsi": "Kopi Robusta khas Tunggularum dipetik langsung dari kebun ketinggian lebih dari 600 mdpl.",
-    "gambar": "/images/umkm/arum-kopi.jpg",
-    "driveLink": "https://drive.google.com/drive/folders/1SampleSalakFolderDriveTunggularum"
+    "gambar": "/images/umkm/Arum Kopi.jpeg",
+    "driveLink": "https://drive.google.com/file/d/1ls8200AvlEYdPB9DzTMccueNOSID0gyS/view?usp=drive_link"
   },
   {
     "id": 2,
-    "nama": "Kopi Merapi Arabika Tunggularum",
-    "kategori": "Minuman & Olahan Kopi",
-    "pemilik": "Ibu Rahma",
-    "kontak": "+62 812-3456-7892",
-    "waLink": "https://wa.me/6281234567892?text=Halo%20Ibu%20Rahma,%20saya%20tertarik%20pesan%20Kopi%20Merapi%20Arabika",
+    "nama": "Arumfood",
+    "kategori": "Makanan & Olahan Salak",
+    "pemilik": "Mbak Umi",
+    "kontak": "+62 851-6636-5461",
+    "waLink": "https://wa.me/6285166365461?text=Halo%20Mbak%20Umi,%20saya%20tertarik%20pesan%20Arumfood",
     "lokasi": "RT 02 / Dusun Tunggularum",
-    "deskripsi": "Kopi racikan arabika lereng Gunung Merapi dipetik langsung dari kebun ketinggian 700 mdpl. Diproses dengan pemanggangan medium-dark untuk menciptakan rasa khas pegunungan.",
-    "gambar": "/images/umkm/kopi-merapi.jpg",
-    "driveLink": "https://drive.google.com/drive/folders/1SampleKopiFolderDriveTunggularum"
+    "deskripsi": "Wajik salak Arumfood merupakan olahan khas berbahan dasar salak dan kelapa yang dipadukan menjadi kudapan manis dengan cita rasa khas. Diproduksi sejak tahun 2024, wajik salak Arumfood cocok dinikmati sebagai camilan maupun oleh-oleh. Produk ini tersedia dalam beberapa pilihan ukuran dan dipasarkan dengan sistem pre-order (PO) untuk menjaga kesegarannya. Wajik Salak Arum memiliki masa simpan sekitar 1 bulan.",
+    "gambar": "/images/umkm/Arumfood.jpeg",
+    "driveLink": "https://drive.google.com/file/d/1OtWjaSzOZ_s2EJiNFmLaKNBs3_qNhmEu/view?usp=sharing"
   },
   {
     "id": 3,
-    "nama": "Kerajinan Anyaman Bambu Tradisional",
-    "kategori": "Kerajinan Tangan & Souvenir",
-    "pemilik": "Pak Maryono",
-    "kontak": "+62 812-3456-7893",
-    "waLink": "https://wa.me/6281234567893?text=Halo%20Pak%20Maryono,%20saya%20ingin%20tanya%20kerajinan%20anyaman%20bambu",
-    "lokasi": "RT 03 / Dusun Tunggularum",
-    "deskripsi": "Kerajinan tangan dari bambu lokal kualitas pilihan. Menerima pesanan besek hantaran, tampah, tudung saji, wadah souvenir, dan dekorasi rumah bernuansa etnik.",
-    "gambar": "/images/umkm/kerajinan-bambu.jpg",
-    "driveLink": "https://drive.google.com/drive/folders/1SampleBambuFolderDriveTunggularum"
-  },
-  {
-    "id": 4,
-    "nama": "Keripik & Dodol Salak Olahan KWT",
-    "kategori": "Olahan Pangan & Oleh-Oleh",
-    "pemilik": "Ibu Hastuti (Kelompok Wanita Tani)",
-    "kontak": "+62 812-3456-7894",
-    "waLink": "https://wa.me/6281234567894?text=Halo%20Ibu%20Hastuti,%20saya%20ingin%20pesan%20oleh-oleh%20Keripik%20Salak",
+    "nama": "Mbokpuh Kopi",
+    "kategori": "Minuman & Olahan Kopi",
+    "pemilik": "Pak Kristanto",
+    "kontak": "+62 821-3974-2140",
+    "waLink": "https://wa.me/6282139742140?text=Halo,%20saya%20tertarik%20dengan%20produk%20Mbokpuh%20Kopi",
     "lokasi": "RT 02 / Dusun Tunggularum",
-    "deskripsi": "Produk olahan buah salak buatan Kelompok Wanita Tani (KWT) Tunggularum. Diolah menggunakan teknologi penggorengan vakum (vacuum frying) tanpa bahan pengawet sintetis.",
-    "gambar": "/images/umkm/salak-pondoh.jpg",
-    "driveLink": "https://drive.google.com/drive/folders/1SampleKeripikFolderDriveTunggularum"
-  },
-  {
-    "id": 5,
-    "nama": "Agrowisata & Tour Kebun Salak",
-    "kategori": "Jasa & Eduwisata Alam",
-    "pemilik": "Pokdarwis Tunggularum (Pak Joko)",
-    "kontak": "+62 812-3456-7895",
-    "waLink": "https://wa.me/6281234567895?text=Halo%20Pokdarwis,%20saya%20ingin%20reservasi%20paket%20Tour%20Kebun%20Salak",
-    "lokasi": "RT 04 / Dusun Tunggularum",
-    "deskripsi": "Paket wisata edukasi petik buah salak langsung di kebun, jalan santai menyusuri mata air lereng Merapi, dan mencicipi hidangan kuliner tradisional dusun.",
-    "gambar": "/images/umkm/kopi-merapi.jpg",
-    "driveLink": "https://drive.google.com/drive/folders/1SampleWisataFolderDriveTunggularum"
+    "deskripsi": "Mbokpuh merupakan kopi Robusta lokal yang telah diproduksi sejak tahun 2024. Kopi Robusta ini memiliki karakter rasa yang khas dan kuat, cocok bagi penikmat kopi yang menyukai cita rasa kopi yang lebih pekat dan beraroma. Dengan cita rasa dan aroma khas Robusta, Mbokpuh hadir untuk menemani berbagai momen ngopi, dari mengawali hari hingga bersantai bersama keluarga dan teman. Kopi Mbokpuh memiliki masa simpan selama kurang lebih 3 bulan untuk kualitas produk kopi terbaik.",
+    "gambar": "/images/umkm/Mbokpuh.jpeg",
+    "driveLink": "https://drive.google.com/file/d/1oGUmw6F5_e2S1_pmzyvN8fYYumRb1Ena/view?usp=drive_link"
   }
 ]
