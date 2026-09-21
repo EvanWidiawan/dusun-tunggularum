@@ -11,7 +11,7 @@
 
       <!-- Hero Content -->
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24 relative z-10 text-center">
-        <div class="max-w-3xl mx-auto space-y-6">
+        <div class="max-w-3xl mx-auto space-y-6 reveal-on-scroll">
           
           <!-- Badge -->
           <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/15 backdrop-blur-md border border-white/30 text-white text-xs font-semibold uppercase tracking-wider shadow-lg">
@@ -36,15 +36,15 @@
     <div class="bg-[#1F5C6B] text-[#EEF3F3] py-10 border-y border-[#5FA8B5]/30">
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="grid grid-cols-1 md:grid-cols-3 gap-8 text-center divide-y md:divide-y-0 md:divide-x divide-[#EEF3F3]/15">
-          <div class="pt-4 md:pt-0">
+          <div class="pt-4 md:pt-0 reveal-on-scroll delay-100">
             <p class="font-display font-bold text-4xl text-[#5FA8B5]">600+</p>
             <p class="text-sm text-[#EEF3F3]/80 mt-1 font-medium">Jumlah Warga Dusun</p>
           </div>
-          <div class="pt-4 md:pt-0">
+          <div class="pt-4 md:pt-0 reveal-on-scroll delay-200">
             <p class="font-display font-bold text-4xl text-[#5FA8B5]">164 Ha</p>
             <p class="text-sm text-[#EEF3F3]/80 mt-1 font-medium">Luas Wilayah Dusun</p>
           </div>
-          <div class="pt-4 md:pt-0">
+          <div class="pt-4 md:pt-0 reveal-on-scroll delay-300">
             <p class="font-display font-bold text-4xl text-[#5FA8B5]">4 RT</p>
             <p class="text-sm text-[#EEF3F3]/80 mt-1 font-medium">Rukun Tetangga Aktif</p>
           </div>
@@ -54,12 +54,12 @@
 
     <!-- SECTION 2: PROFIL & SEJARAH DUSUN -->
     <section id="profil" class="py-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 border-b border-[#3A4A4C]/15">
-      <div class="max-w-3xl mx-auto text-center space-y-4 mb-12">
+      <div class="max-w-3xl mx-auto text-center space-y-4 mb-12 reveal-on-scroll">
         <h2 class="font-display font-bold text-4xl text-[#1F5C6B]">Profil & Sejarah Dusun Tunggularum</h2>
         <p class="text-[#5E6E6E] text-lg">Sejarah panjang, keasrian alam, serta visi & misi pembangunan dusun.</p>
       </div>
 
-      <div class="bg-white/80 rounded-2xl p-8 border border-[#3A4A4C]/15 shadow-xs space-y-8 max-w-4xl mx-auto">
+      <div class="bg-white/80 rounded-2xl p-8 border border-[#3A4A4C]/15 shadow-xs space-y-8 max-w-4xl mx-auto reveal-on-scroll delay-100">
         <div>
           <h3 class="font-display font-bold text-2xl text-[#1F5C6B] mb-3">Sejarah Dusun</h3>
           <p class="text-[#5E6E6E] leading-relaxed">
@@ -68,14 +68,14 @@
         </div>
 
         <div class="grid grid-cols-1 md:grid-cols-2 gap-6 pt-4 border-t border-[#3A4A4C]/15">
-          <div class="bg-[#EEF3F3]/80 p-6 rounded-xl border border-[#3A4A4C]/10">
+          <div class="bg-[#EEF3F3]/80 p-6 rounded-xl border border-[#3A4A4C]/10 reveal-on-scroll delay-200">
             <h4 class="font-display font-bold text-xl text-[#1F5C6B] mb-2">Visi Dusun</h4>
             <p class="text-sm text-[#5E6E6E] leading-relaxed">
               Terwujudnya Dusun Tunggularum yang Mandiri, Sejahtera, Berdaya Saing, Berbasis Agrowisata dan Pelestarian Sumber Daya Alam Pegunungan.
             </p>
           </div>
 
-          <div class="bg-[#EEF3F3]/80 p-6 rounded-xl border border-[#3A4A4C]/10">
+          <div class="bg-[#EEF3F3]/80 p-6 rounded-xl border border-[#3A4A4C]/10 reveal-on-scroll delay-300">
             <h4 class="font-display font-bold text-xl text-[#1F5C6B] mb-2">Misi Dusun</h4>
             <ul class="text-sm text-[#5E6E6E] space-y-2 list-disc list-inside">
               <li>Meningkatkan tata kelola kemasyarakatan yang transparan.</li>
@@ -89,14 +89,14 @@
 
     <!-- SECTION 3: UMKM DESA (CAROUSEL RESPONSIVE HP, TABLET, DESKTOP + SWIPE MOBILE) -->
     <section id="umkm" class="py-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 border-b border-[#3A4A4C]/15">
-      <div class="max-w-3xl mx-auto text-center space-y-4 mb-12">
+      <div class="max-w-3xl mx-auto text-center space-y-4 mb-12 reveal-on-scroll">
         <h2 class="font-display font-bold text-3xl sm:text-4xl text-[#1F5C6B]">UMKM Dusun Tunggularum</h2>
         <p class="text-[#5E6E6E] text-base sm:text-lg">Produk olahan pangan lokal, hasil tani unggulan, dan usaha kreatif warga. Klik kartu untuk detail & katalog lengkap.</p>
       </div>
 
       <!-- Carousel Outer Container -->
       <div
-        class="relative px-2 sm:px-12"
+        class="relative px-2 sm:px-12 reveal-on-scroll delay-100"
         @mouseenter="pauseAutoSlide"
         @mouseleave="startAutoSlide"
         @touchstart="handleTouchStart"
@@ -230,7 +230,7 @@
 
     <!-- SECTION 4: KEGIATAN & TRADISI BESAR DUSUN -->
     <section id="kegiatan" class="py-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 border-b border-[#3A4A4C]/15">
-      <div class="max-w-3xl mx-auto text-center space-y-4 mb-14">
+      <div class="max-w-3xl mx-auto text-center space-y-4 mb-14 reveal-on-scroll">
         <h2 class="font-display font-bold text-3xl sm:text-4xl text-[#1F5C6B]">
           Kegiatan & Tradisi Dusun
         </h2>
@@ -242,10 +242,11 @@
       <!-- Activities Grid -->
       <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
         <div
-          v-for="kegiatan in activeKegiatanList"
+          v-for="(kegiatan, kIdx) in activeKegiatanList"
           :key="kegiatan.id"
           @click="openKegiatanModal(kegiatan)"
-          class="bg-white rounded-3xl overflow-hidden border border-[#3A4A4C]/15 shadow-xs hover:shadow-xl hover:-translate-y-1 transition-all duration-300 cursor-pointer flex flex-col justify-between group"
+          class="bg-white rounded-3xl overflow-hidden border border-[#3A4A4C]/15 shadow-xs hover:shadow-xl hover:-translate-y-1.5 transition-all duration-300 cursor-pointer flex flex-col justify-between group reveal-on-scroll"
+          :class="kIdx % 3 === 0 ? 'delay-100' : kIdx % 3 === 1 ? 'delay-200' : 'delay-300'"
         >
           <div>
             <!-- Cover Photo Preview with Fallback Image -->
@@ -305,7 +306,7 @@
 
     <!-- SECTION 5: GALERI FOTO DUSUN -->
     <section id="galeri" class="py-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 border-b border-[#3A4A4C]/15">
-      <div class="max-w-3xl mx-auto text-center space-y-4 mb-14">
+      <div class="max-w-3xl mx-auto text-center space-y-4 mb-14 reveal-on-scroll">
         <h2 class="font-display font-bold text-3xl sm:text-4xl text-[#1F5C6B]">
           Galeri Foto Dusun
         </h2>
@@ -315,7 +316,7 @@
       </div>
 
       <!-- Galeri Carousel Container (8 Foto per Slide dengan Slider Geser) -->
-      <div v-if="galeri && galeri.length > 0" class="space-y-8">
+      <div v-if="galeri && galeri.length > 0" class="space-y-8 reveal-on-scroll delay-100">
         <!-- Carousel Track with Overflow Hidden -->
         <div
           class="overflow-hidden relative rounded-3xl"
@@ -429,16 +430,17 @@
 
     <!-- SECTION 6: KARANG TARUNA -->
     <section id="karang-taruna" class="py-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 border-b border-[#3A4A4C]/15">
-      <div class="max-w-3xl mx-auto text-center space-y-4 mb-12">
+      <div class="max-w-3xl mx-auto text-center space-y-4 mb-12 reveal-on-scroll">
         <h2 class="font-display font-bold text-4xl text-[#1F5C6B]">Karang Taruna Dusun Tunggularum</h2>
         <p class="text-[#5E6E6E] text-lg">Struktur kepengurusan dan penggerak generasi muda Dusun Tunggularum.</p>
       </div>
 
       <div v-if="karangTaruna && karangTaruna.length > 0" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
         <div
-          v-for="member in karangTaruna"
+          v-for="(member, mIdx) in karangTaruna"
           :key="member.id"
-          class="bg-white/80 rounded-2xl p-6 border border-[#3A4A4C]/15 shadow-xs flex flex-col items-center text-center hover:shadow-md transition-all"
+          class="bg-white/80 rounded-2xl p-6 border border-[#3A4A4C]/15 shadow-xs flex flex-col items-center text-center hover:shadow-md hover:-translate-y-1 transition-all duration-300 reveal-on-scroll"
+          :class="mIdx % 3 === 0 ? 'delay-100' : mIdx % 3 === 1 ? 'delay-200' : 'delay-300'"
         >
           <div class="w-24 h-24 rounded-full bg-[#1F5C6B]/10 border-2 border-[#1F5C6B] overflow-hidden flex items-center justify-center mb-4">
             <img
@@ -469,13 +471,13 @@
 
     <!-- SECTION 7: KONTAK & LOKASI -->
     <section id="kontak" class="py-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="max-w-3xl mx-auto text-center space-y-4 mb-12">
+      <div class="max-w-3xl mx-auto text-center space-y-4 mb-12 reveal-on-scroll">
         <h2 class="font-display font-bold text-4xl text-[#1F5C6B]">Kontak & Peta Dusun</h2>
         <p class="text-[#5E6E6E] text-lg">Hubungi pengurus dusun atau kunjungi lokasi Dusun Tunggularum.</p>
       </div>
 
       <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 max-w-5xl mx-auto">
-        <div class="bg-white/80 rounded-2xl p-8 border border-[#3A4A4C]/15 shadow-xs space-y-6">
+        <div class="bg-white/80 rounded-2xl p-8 border border-[#3A4A4C]/15 shadow-xs space-y-6 reveal-on-scroll delay-100">
           <h3 class="font-display font-bold text-2xl text-[#1F5C6B]">Informasi Pelayanan Dusun</h3>
           <div class="space-y-4 text-sm text-[#5E6E6E]">
             <div>
@@ -493,7 +495,7 @@
           </div>
         </div>
 
-        <div>
+        <div class="reveal-on-scroll delay-200">
           <!-- Interactive Leaflet Map for Dusun Tunggularum -->
           <LeafletMap />
         </div>
@@ -845,6 +847,7 @@ import { ref, computed, onMounted, onUnmounted } from 'vue';
 import PublicLayout from '../../Layouts/PublicLayout.vue';
 import LeafletMap from '../../Components/LeafletMap.vue';
 import { getImageUrl, handleImageFallback } from '../../Utils/image';
+import { initScrollReveal } from '../../Utils/useScrollReveal';
 
 const props = defineProps({
   karangTaruna: Array,
@@ -1118,6 +1121,7 @@ onMounted(() => {
     handleResize();
   }
   startAutoSlide();
+  initScrollReveal();
 });
 
 onUnmounted(() => {
