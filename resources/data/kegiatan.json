@@ -50,18 +50,14 @@
   {
     "id": 3,
     "judul": "Malam Tirakatan",
-    "lokasi": " Gedung Serbaguna & Kawasan Desa Tunggularum",
+    "lokasi": "Gedung Serbaguna & Kawasan Desa Tunggularum",
     "deskripsi_singkat": "Upacara adat malam tirakatan yang diikuti oleh seluruh warga dusun, dengan iringan tabuhan gamelan dan shalawat, dilanjutkan dengan pagelaran wayang kulit semalam suntuk.",
     "deskripsi_lengkap": "Malam Tirakatan merupakan puncak peringatan hari kemerdekaan Republik Indonesia yang diselenggarakan setiap tanggal 16 Agustus. Acara dibuka dengan prosesi hormat bendera Merah Putih dan menyanyikan lagu Indonesia Raya.Dilanjutkan dengan renungan perjuangan para pahlawan bangsa, persembahan paduan suara dari Tim Magenta, serta pembacaan doa lintas agama yang diiringi alunan musik gamelan dan shalawat. Malam ditutup dengan pertunjukan wayang kulit semalam suntuk dengan lakon ‘Semar Mbangun Kahyangan’ yang menampilkan para dalang maestro dari paguyuban dalang se-DIY.",
     "cover": "/images/kegiatan/tirakatan.jpg",
     "foto_dokumentasi": [
       {
         "url": "/images/kegiatan/festival-salak-1.jpg",
-        "caption": "Pameran Buah Segar dan Produk Olahan Salak Pondoh KWT"
-      },
-      {
-        "url": "/images/kegiatan/festival-salak-2.jpg",
-        "caption": "Wisata Edukasi Petik Salak Bersama Pengunjung"
+        "caption": "malam tirakatan"
       }
     ]
   }
