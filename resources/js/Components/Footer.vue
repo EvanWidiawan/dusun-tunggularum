@@ -63,6 +63,11 @@
               </a>
             </li>
             <li>
+              <Link href="/berita" class="text-[#EEF3F3]/80 hover:text-[#5FA8B5] hover:translate-x-1 transition-all inline-block cursor-pointer">
+                Berita Dusun
+              </Link>
+            </li>
+            <li>
               <a href="#karang-taruna" @click.prevent="scrollToSection('#karang-taruna')" class="text-[#EEF3F3]/80 hover:text-[#5FA8B5] hover:translate-x-1 transition-all inline-block cursor-pointer">
                 Karang Taruna
               </a>

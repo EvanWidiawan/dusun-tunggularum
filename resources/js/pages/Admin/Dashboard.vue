@@ -18,62 +18,76 @@
         </div>
       </div>
 
-      <!-- 4 Stat Cards Grid -->
-      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
+      <!-- 5 Stat Cards Grid -->
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-4">
         <!-- Stat 1: Total Kunjungan -->
-        <div class="bg-white rounded-2xl p-6 border border-[#3A4A4C]/10 shadow-xs hover:shadow-md transition-all space-y-3">
+        <div class="bg-white rounded-2xl p-5 border border-[#3A4A4C]/10 shadow-xs hover:shadow-md transition-all space-y-3">
           <div class="flex items-center justify-between">
             <span class="text-xs font-bold uppercase tracking-wider text-[#5E6E6E]">Total Kunjungan</span>
-            <div class="w-11 h-11 rounded-xl bg-[#1F5C6B]/10 text-[#1F5C6B] flex items-center justify-center shrink-0">
+            <div class="w-10 h-10 rounded-xl bg-[#1F5C6B]/10 text-[#1F5C6B] flex items-center justify-center shrink-0">
               <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
               </svg>
             </div>
           </div>
-          <p class="font-display font-bold text-3xl text-[#1F5C6B] tracking-tight">{{ stats.totalVisits }}</p>
-          <p class="text-xs text-[#5E6E6E] font-medium">Akumulasi pengunjung publik</p>
+          <p class="font-display font-bold text-2xl sm:text-3xl text-[#1F5C6B] tracking-tight">{{ stats.totalVisits }}</p>
+          <p class="text-xs text-[#5E6E6E] font-medium">Akumulasi pengunjung</p>
         </div>
 
         <!-- Stat 2: Kunjungan Hari Ini -->
-        <div class="bg-white rounded-2xl p-6 border border-[#3A4A4C]/10 shadow-xs hover:shadow-md transition-all space-y-3">
+        <div class="bg-white rounded-2xl p-5 border border-[#3A4A4C]/10 shadow-xs hover:shadow-md transition-all space-y-3">
           <div class="flex items-center justify-between">
             <span class="text-xs font-bold uppercase tracking-wider text-[#5E6E6E]">Hari Ini</span>
-            <div class="w-11 h-11 rounded-xl bg-[#5FA8B5]/20 text-[#1F5C6B] flex items-center justify-center shrink-0">
+            <div class="w-10 h-10 rounded-xl bg-[#5FA8B5]/20 text-[#1F5C6B] flex items-center justify-center shrink-0">
               <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6" />
               </svg>
             </div>
           </div>
-          <p class="font-display font-bold text-3xl text-[#1F5C6B] tracking-tight">{{ stats.todayVisits }}</p>
+          <p class="font-display font-bold text-2xl sm:text-3xl text-[#1F5C6B] tracking-tight">{{ stats.todayVisits }}</p>
           <p class="text-xs text-[#5E6E6E] font-medium">Kunjungan hari ini</p>
         </div>
 
-        <!-- Stat 3: Karang Taruna -->
-        <div class="bg-white rounded-2xl p-6 border border-[#3A4A4C]/10 shadow-xs hover:shadow-md transition-all space-y-3">
+        <!-- Stat 3: Berita Dusun -->
+        <div class="bg-white rounded-2xl p-5 border border-[#3A4A4C]/10 shadow-xs hover:shadow-md transition-all space-y-3">
+          <div class="flex items-center justify-between">
+            <span class="text-xs font-bold uppercase tracking-wider text-[#5E6E6E]">Berita Dusun</span>
+            <div class="w-10 h-10 rounded-xl bg-[#1F5C6B]/10 text-[#1F5C6B] flex items-center justify-center shrink-0">
+              <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 20H5a2 2 0 01-2-2V6a2 2 0 012-2h10a2 2 0 012 2v1m2 13a2 2 0 01-2-2V7m2 13a2 2 0 002-2V9a2 2 0 00-2-2h-2m-4-3H9M7 16h6M7 8h6v4H7V8z" />
+              </svg>
+            </div>
+          </div>
+          <p class="font-display font-bold text-2xl sm:text-3xl text-[#1F5C6B] tracking-tight">{{ stats.totalBerita ?? 0 }}</p>
+          <p class="text-xs text-[#5E6E6E] font-medium">Artikel & pengumuman</p>
+        </div>
+
+        <!-- Stat 4: Karang Taruna -->
+        <div class="bg-white rounded-2xl p-5 border border-[#3A4A4C]/10 shadow-xs hover:shadow-md transition-all space-y-3">
           <div class="flex items-center justify-between">
             <span class="text-xs font-bold uppercase tracking-wider text-[#5E6E6E]">Karang Taruna</span>
-            <div class="w-11 h-11 rounded-xl bg-[#1F5C6B]/10 text-[#1F5C6B] flex items-center justify-center shrink-0">
+            <div class="w-10 h-10 rounded-xl bg-[#1F5C6B]/10 text-[#1F5C6B] flex items-center justify-center shrink-0">
               <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z" />
               </svg>
             </div>
           </div>
-          <p class="font-display font-bold text-3xl text-[#1F5C6B] tracking-tight">{{ stats.totalKarangTaruna }}</p>
+          <p class="font-display font-bold text-2xl sm:text-3xl text-[#1F5C6B] tracking-tight">{{ stats.totalKarangTaruna }}</p>
           <p class="text-xs text-[#5E6E6E] font-medium">Pengurus aktif terdaftar</p>
         </div>
 
-        <!-- Stat 4: Galeri Foto -->
-        <div class="bg-white rounded-2xl p-6 border border-[#3A4A4C]/10 shadow-xs hover:shadow-md transition-all space-y-3">
+        <!-- Stat 5: Galeri Foto -->
+        <div class="bg-white rounded-2xl p-5 border border-[#3A4A4C]/10 shadow-xs hover:shadow-md transition-all space-y-3">
           <div class="flex items-center justify-between">
             <span class="text-xs font-bold uppercase tracking-wider text-[#5E6E6E]">Foto Galeri</span>
-            <div class="w-11 h-11 rounded-xl bg-[#5FA8B5]/20 text-[#1F5C6B] flex items-center justify-center shrink-0">
+            <div class="w-10 h-10 rounded-xl bg-[#5FA8B5]/20 text-[#1F5C6B] flex items-center justify-center shrink-0">
               <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" />
               </svg>
             </div>
           </div>
-          <p class="font-display font-bold text-3xl text-[#1F5C6B] tracking-tight">{{ stats.totalGaleri }}</p>
+          <p class="font-display font-bold text-2xl sm:text-3xl text-[#1F5C6B] tracking-tight">{{ stats.totalGaleri }}</p>
           <p class="text-xs text-[#5E6E6E] font-medium">Foto terpublikasi</p>
         </div>
       </div>
@@ -90,6 +104,19 @@
           </div>
           
           <div class="space-y-3">
+            <Link
+              href="/admin/berita"
+              class="flex items-center justify-between p-4 rounded-xl bg-[#EEF3F3] hover:bg-[#1F5C6B] text-[#1F5C6B] hover:text-white transition-all group font-semibold text-sm shadow-2xs"
+            >
+              <div class="flex items-center gap-3">
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 20H5a2 2 0 01-2-2V6a2 2 0 012-2h10a2 2 0 012 2v1m2 13a2 2 0 01-2-2V7m2 13a2 2 0 002-2V9a2 2 0 00-2-2h-2m-4-3H9M7 16h6M7 8h6v4H7V8z" />
+                </svg>
+                <span>Kelola Berita Dusun</span>
+              </div>
+              <span class="text-xs group-hover:translate-x-1 transition-transform font-bold">&rarr;</span>
+            </Link>
+
             <Link
               href="/admin/karang-taruna"
               class="flex items-center justify-between p-4 rounded-xl bg-[#EEF3F3] hover:bg-[#1F5C6B] text-[#1F5C6B] hover:text-white transition-all group font-semibold text-sm shadow-2xs"

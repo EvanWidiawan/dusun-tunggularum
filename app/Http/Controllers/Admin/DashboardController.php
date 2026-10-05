@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use App\Models\KarangTaruna;
 use App\Models\Galeri;
+use App\Models\Berita;
 use App\Models\PageVisit;
 use Carbon\Carbon;
 use Inertia\Inertia;
@@ -22,6 +23,7 @@ class DashboardController extends Controller
 
         $totalKarangTaruna = KarangTaruna::count();
         $totalGaleri = Galeri::count();
+        $totalBerita = Berita::count();
 
         // 7 Hari terakhir untuk chart/grafik ringkas
         $recentVisits = PageVisit::orderBy('tanggal', 'desc')
@@ -36,6 +38,7 @@ class DashboardController extends Controller
                 'todayVisits' => $todayVisits,
                 'totalKarangTaruna' => $totalKarangTaruna,
                 'totalGaleri' => $totalGaleri,
+                'totalBerita' => $totalBerita,
             ],
             'recentVisits' => $recentVisits,
         ]);

@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Api;
 use App\Http\Controllers\Controller;
 use App\Models\KarangTaruna;
 use App\Models\Galeri;
+use App\Models\Berita;
 use App\Models\PageVisit;
 use Carbon\Carbon;
 use Illuminate\Http\JsonResponse;
@@ -21,6 +22,7 @@ class ApiDashboardController extends Controller
 
         $totalKarangTaruna = KarangTaruna::count();
         $totalGaleri = Galeri::count();
+        $totalBerita = Berita::count();
 
         $recentVisits = PageVisit::orderBy('tanggal', 'desc')
             ->take(7)
@@ -35,6 +37,7 @@ class ApiDashboardController extends Controller
                 'todayVisits' => (int) $todayVisits,
                 'totalKarangTaruna' => $totalKarangTaruna,
                 'totalGaleri' => $totalGaleri,
+                'totalBerita' => $totalBerita,
             ],
             'recentVisits' => $recentVisits,
         ]);

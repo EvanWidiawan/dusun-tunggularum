@@ -81,5 +81,8 @@ class DatabaseSeeder extends Seeder
                 'jumlah_kunjungan' => rand(15, 65),
             ]);
         }
+
+        // 5. Sample Data Berita Dusun
+        $this->call(BeritaSeeder::class);
     }
 }

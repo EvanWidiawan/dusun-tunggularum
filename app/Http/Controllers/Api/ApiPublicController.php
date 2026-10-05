@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Api;
 use App\Http\Controllers\Controller;
 use App\Models\KarangTaruna;
 use App\Models\Galeri;
+use App\Models\Berita;
 use Illuminate\Http\JsonResponse;
 
 class ApiPublicController extends Controller
@@ -23,6 +24,7 @@ class ApiPublicController extends Controller
                 ],
                 'karangTaruna' => KarangTaruna::all(),
                 'galeri' => Galeri::orderBy('tanggal', 'desc')->take(6)->get(),
+                'berita' => Berita::published()->latestFirst()->take(6)->get(),
             ],
         ]);
     }
@@ -92,6 +94,14 @@ class ApiPublicController extends Controller
         return response()->json([
             'success' => true,
             'data' => Galeri::orderBy('tanggal', 'desc')->get(),
+        ]);
+    }
+
+    public function berita(): JsonResponse
+    {
+        return response()->json([
+            'success' => true,
+            'data' => Berita::published()->latestFirst()->get(),
         ]);
     }
 }

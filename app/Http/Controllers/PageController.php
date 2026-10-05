@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\KarangTaruna;
 use App\Models\Galeri;
+use App\Models\Berita;
 use Inertia\Inertia;
 use Inertia\Response;
 
@@ -60,6 +61,13 @@ class PageController extends Controller
     {
         return Inertia::render('Public/Galeri', [
             'galleries' => Galeri::orderBy('tanggal', 'desc')->get(),
+        ]);
+    }
+
+    public function berita(): Response
+    {
+        return Inertia::render('Public/Berita', [
+            'beritaList' => Berita::published()->latestFirst()->get(),
         ]);
     }
 }

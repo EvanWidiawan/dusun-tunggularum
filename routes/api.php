@@ -6,6 +6,7 @@ use App\Http\Controllers\Api\ApiPublicController;
 use App\Http\Controllers\Api\ApiDashboardController;
 use App\Http\Controllers\Api\ApiKarangTarunaController;
 use App\Http\Controllers\Api\ApiGaleriController;
+use App\Http\Controllers\Api\ApiBeritaController;
 use App\Http\Middleware\TrackPageVisit;
 
 /*
@@ -21,6 +22,7 @@ Route::middleware([TrackPageVisit::class])->group(function () {
     Route::get('/kontak', [ApiPublicController::class, 'kontak']);
     Route::get('/karang-taruna', [ApiPublicController::class, 'karangTaruna']);
     Route::get('/galeri', [ApiPublicController::class, 'galeri']);
+    Route::get('/berita', [ApiPublicController::class, 'berita']);
 });
 
 /*
@@ -55,4 +57,11 @@ Route::middleware('auth:sanctum')->prefix('admin')->group(function () {
     Route::get('/galeri/{id}', [ApiGaleriController::class, 'show']);
     Route::post('/galeri/{id}', [ApiGaleriController::class, 'update']);
     Route::delete('/galeri/{id}', [ApiGaleriController::class, 'destroy']);
+
+    // Berita CRUD API
+    Route::get('/berita', [ApiBeritaController::class, 'index']);
+    Route::post('/berita', [ApiBeritaController::class, 'store']);
+    Route::get('/berita/{id}', [ApiBeritaController::class, 'show']);
+    Route::post('/berita/{id}', [ApiBeritaController::class, 'update']);
+    Route::delete('/berita/{id}', [ApiBeritaController::class, 'destroy']);
 });

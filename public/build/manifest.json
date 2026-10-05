@@ -1,6 +1,6 @@
 {
-  "_AdminLayout-uj3kU-Ue.js": {
-    "file": "assets/AdminLayout-uj3kU-Ue.js",
+  "_AdminLayout-1f0M74JH.js": {
+    "file": "assets/AdminLayout-1f0M74JH.js",
     "name": "AdminLayout",
     "imports": [
       "resources/js/app.js"
@@ -38,6 +38,13 @@
     "file": "assets/instrument-sans-600-normal-B9e8oLYv.woff",
     "src": "_instrument-sans-600-normal-B9e8oLYv.woff"
   },
+  "_useScrollReveal-CxEqfV44.js": {
+    "file": "assets/useScrollReveal-CxEqfV44.js",
+    "name": "useScrollReveal",
+    "imports": [
+      "resources/js/app.js"
+    ]
+  },
   "node_modules/leaflet/dist/images/layers-2x.png": {
     "file": "assets/layers-2x-Bpkbi35X.png",
     "src": "node_modules/leaflet/dist/images/layers-2x.png"
@@ -51,7 +58,7 @@
     "src": "node_modules/leaflet/dist/images/marker-icon.png"
   },
   "resources/css/app.css": {
-    "file": "assets/app-C4oJ8WP2.css",
+    "file": "assets/app-CdM43luR.css",
     "name": "app",
     "names": [
       "app.css"
@@ -65,19 +72,21 @@
     ]
   },
   "resources/js/app.js": {
-    "file": "assets/app-BLHwCs7M.js",
+    "file": "assets/app-DqkGsO6e.js",
     "name": "app",
     "src": "resources/js/app.js",
     "isEntry": true,
     "dynamicImports": [
+      "resources/js/pages/Admin/Berita/Index.vue",
       "resources/js/pages/Admin/Dashboard.vue",
       "resources/js/pages/Admin/Galeri/Index.vue",
       "resources/js/pages/Admin/KarangTaruna/Index.vue",
       "resources/js/pages/Auth/Login.vue",
+      "resources/js/pages/Public/Berita.vue",
       "resources/js/pages/Public/Home.vue"
     ],
     "css": [
-      "assets/app-C4oJ8WP2.css"
+      "assets/app-CdM43luR.css"
     ],
     "assets": [
       "assets/layers-BWBAp2CZ.png",
@@ -85,40 +94,51 @@
       "assets/marker-icon-hN30_KVU.png"
     ]
   },
+  "resources/js/pages/Admin/Berita/Index.vue": {
+    "file": "assets/Index-BsbDtPrP.js",
+    "name": "Index",
+    "src": "resources/js/pages/Admin/Berita/Index.vue",
+    "isDynamicEntry": true,
+    "imports": [
+      "resources/js/app.js",
+      "_AdminLayout-1f0M74JH.js",
+      "_image-DMgkDwju.js"
+    ]
+  },
   "resources/js/pages/Admin/Dashboard.vue": {
-    "file": "assets/Dashboard-BfhyIiZe.js",
+    "file": "assets/Dashboard-DaFHGlLM.js",
     "name": "Dashboard",
     "src": "resources/js/pages/Admin/Dashboard.vue",
     "isDynamicEntry": true,
     "imports": [
       "resources/js/app.js",
-      "_AdminLayout-uj3kU-Ue.js"
+      "_AdminLayout-1f0M74JH.js"
     ]
   },
   "resources/js/pages/Admin/Galeri/Index.vue": {
-    "file": "assets/Index-DSo-K0Lh.js",
+    "file": "assets/Index-C_HYXcg3.js",
     "name": "Index",
     "src": "resources/js/pages/Admin/Galeri/Index.vue",
     "isDynamicEntry": true,
     "imports": [
       "resources/js/app.js",
-      "_AdminLayout-uj3kU-Ue.js",
+      "_AdminLayout-1f0M74JH.js",
       "_image-DMgkDwju.js"
     ]
   },
   "resources/js/pages/Admin/KarangTaruna/Index.vue": {
-    "file": "assets/Index-mOPHao4O.js",
+    "file": "assets/Index-D8oeffEW.js",
     "name": "Index",
     "src": "resources/js/pages/Admin/KarangTaruna/Index.vue",
     "isDynamicEntry": true,
     "imports": [
       "resources/js/app.js",
-      "_AdminLayout-uj3kU-Ue.js",
+      "_AdminLayout-1f0M74JH.js",
       "_image-DMgkDwju.js"
     ]
   },
   "resources/js/pages/Auth/Login.vue": {
-    "file": "assets/Login-BTib38Tq.js",
+    "file": "assets/Login-C1LX08WU.js",
     "name": "Login",
     "src": "resources/js/pages/Auth/Login.vue",
     "isDynamicEntry": true,
@@ -126,14 +146,29 @@
       "resources/js/app.js"
     ]
   },
+  "resources/js/pages/Public/Berita.vue": {
+    "file": "assets/Berita-DQuFw4-N.js",
+    "name": "Berita",
+    "src": "resources/js/pages/Public/Berita.vue",
+    "isDynamicEntry": true,
+    "imports": [
+      "resources/js/app.js",
+      "_image-DMgkDwju.js",
+      "_useScrollReveal-CxEqfV44.js"
+    ],
+    "css": [
+      "assets/Berita-C4hK4_xc.css"
+    ]
+  },
   "resources/js/pages/Public/Home.vue": {
-    "file": "assets/Home-CYTeSfpG.js",
+    "file": "assets/Home-CVhsjJan.js",
     "name": "Home",
     "src": "resources/js/pages/Public/Home.vue",
     "isDynamicEntry": true,
     "imports": [
       "resources/js/app.js",
-      "_image-DMgkDwju.js"
+      "_image-DMgkDwju.js",
+      "_useScrollReveal-CxEqfV44.js"
     ]
   }
 }

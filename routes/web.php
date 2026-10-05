@@ -6,6 +6,7 @@ use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Admin\KarangTarunaController as AdminKarangTarunaController;
 use App\Http\Controllers\Admin\GaleriController as AdminGaleriController;
+use App\Http\Controllers\Admin\BeritaController as AdminBeritaController;
 use App\Http\Middleware\TrackPageVisit;
 
 /*
@@ -21,6 +22,7 @@ Route::middleware([TrackPageVisit::class])->group(function () {
     Route::get('/kontak', [PageController::class, 'kontak'])->name('kontak');
     Route::get('/karang-taruna', [PageController::class, 'karangTaruna'])->name('karang-taruna');
     Route::get('/galeri', [PageController::class, 'galeri'])->name('galeri');
+    Route::get('/berita', [PageController::class, 'berita'])->name('berita');
 });
 
 /*
@@ -119,4 +121,10 @@ Route::middleware(['auth'])->prefix('admin')->name('admin.')->group(function () 
     Route::post('/galeri', [AdminGaleriController::class, 'store'])->name('galeri.store');
     Route::post('/galeri/{galeri}', [AdminGaleriController::class, 'update'])->name('galeri.update');
     Route::delete('/galeri/{galeri}', [AdminGaleriController::class, 'destroy'])->name('galeri.destroy');
+
+    // CRUD Berita
+    Route::get('/berita', [AdminBeritaController::class, 'index'])->name('berita.index');
+    Route::post('/berita', [AdminBeritaController::class, 'store'])->name('berita.store');
+    Route::post('/berita/{berita}', [AdminBeritaController::class, 'update'])->name('berita.update');
+    Route::delete('/berita/{berita}', [AdminBeritaController::class, 'destroy'])->name('berita.destroy');
 });

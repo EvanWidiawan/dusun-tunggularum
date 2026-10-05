@@ -70,7 +70,7 @@
             :key="item.name"
             :href="item.href"
             @click.prevent="navigateTo(item.href)"
-            class="px-3.5 py-2 rounded-lg text-sm font-medium transition-all duration-200 cursor-pointer"
+            class="px-2.5 xl:px-3.5 py-2 rounded-lg text-sm font-medium transition-all duration-200 cursor-pointer"
             :class="[
               activeSection === item.id
                 ? isHeroState
@@ -181,11 +181,26 @@ const navItems = [
   { name: 'UMKM Desa', href: '#umkm', id: 'umkm' },
   { name: 'Kegiatan & Tradisi', href: '#kegiatan', id: 'kegiatan' },
   { name: 'Galeri', href: '#galeri', id: 'galeri' },
+  { name: 'Berita', href: '/berita', id: 'berita', type: 'page' },
   { name: 'Karang Taruna', href: '#karang-taruna', id: 'karang-taruna' },
   { name: 'Kontak', href: '#kontak', id: 'kontak' },
 ];
 
+function isBeritaPage() {
+  return page.url === '/berita' || page.url.startsWith('/berita?') || page.url.startsWith('/berita/');
+}
+
 function navigateTo(hash) {
+  // Link ke halaman terpisah (mis. /berita)
+  if (!hash.startsWith('#')) {
+    if (page.url.split('?')[0] === hash) {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+      return;
+    }
+    router.visit(hash);
+    return;
+  }
+
   if (page.url !== '/' && !page.url.startsWith('/#')) {
     router.visit('/' + hash);
     return;
@@ -215,8 +230,14 @@ function handleScroll() {
     isHeroState.value = false;
   }
 
-  // Scroll Spy Logic
-  const sectionIds = navItems.map((item) => item.id);
+  // Di halaman Berita: menu Berita selalu aktif, scroll-spy tidak dipakai
+  if (isBeritaPage()) {
+    activeSection.value = 'berita';
+    return;
+  }
+
+  // Scroll Spy Logic (hanya untuk section di halaman Home)
+  const sectionIds = navItems.filter((item) => item.type !== 'page').map((item) => item.id);
   const scrollPosition = scrollY + 120;
 
   for (let i = sectionIds.length - 1; i >= 0; i--) {
